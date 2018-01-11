@@ -1,0 +1,8 @@
+;!@Install@!UTF-8!
+Title="Quik"
+Progess="no"
+RunProgram="quik.exe"
+InstallPath="%APPDATA%\\irrational idiom\\quik\\bin"
+OverwriteMode="2"
+GUIMode="2"
+;!@InstallEnd@!
