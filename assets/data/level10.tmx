@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="400" height="16" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="90"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="400" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt1VEJACAUBMFX1ShGsLEdBDkOZhLs384AAAAAAAAAAAAAAL+tdAAAlXY6AIBK/gHAi5MOAAAAAAAAAAAAKHcBRGYB9Q==
+  </data>
+ </layer>
+ <layer name="spikes" width="400" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztm+utwyAMRrNaNmG0jnJHa/vrRhEPG0ww9TkSqkKM7aStvxTocQDIOY/j79o0tr/WrK9Z4sfqPVxlp7mHNd+f/vRpL0ncJ/jmszoHANiHXM238Ffz80SMmXat/utx4z6E0w/NM8Q9n9IzilVuAKBHWj+1/kZtJON6arqFXem85roi6oeGaz45TUY7AHyw4ruojblKK6znwC72W+jHE5+NM9+XSvELfck4LQBwjFVtXjWnNcIu+jHoszlfdd5eB2KlQRcAsBm96w5e7HrZVT8s6/RdM0Y0BP0AiEnvusPOeNMPKV7rtNe8AGA+0fbWRNKP+3UK90Cr4qAfALGJtLcmsn7MiIN+AEAE7fiCftiCfgD4ZnSPjBXSPKztLPGmHyvWzy3xmhcA2O2zHEWah7WdFIVmbakfnb5flXPVdRBFjDQyHgDmYLnPcgRpHrPtSmi0aBf9WP28kKP2f0MA8MNoTbUau0orSpqgPc7E2UI/VtHSM4+6BgD/SOd+enxqxj49V9XSjNJryU/hXEj9OC+tYZdyY2vHAN45A7UZ96NnrDSPJ+w6fmeU+kPqhzfeNwgDvA==
+  </data>
+ </layer>
+ <layer name="bounce" width="400" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt3DEOgzAMBVDOglTuf8QOVZcIKyEh4NL3lg5VgqfvBjldFgAA4C6vwXW962fJVg/AU22D63rXz5KtHoCnquVtdM7QPwD+29r4fZnLWfpH1NcAyKHM5bX4vEtUFwA5ZP1dn7UuAD5acvqM2aeje+gfALm15PQZWX50D/0DILfZ/eN77tA/AJ6lzOm9ud6RLO+d54rqAmCuWt5G54K9vB+ZfertH+UznUcArlHL22hO9+z7H9E9k6P0D4BrZPv/Ev0D4Df0vnOadX9wdD/3BwGY4Q2auQsk
+  </data>
+ </layer>
+ <layer name="map" width="400" height="16">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmuuOxCAIhadvtu//VJPN/GmaqlwOAsKXNLOZIqKCRyf7+fC4Fk+TH876Vs4F9Jgpflb1R3mofizsKOO5v7NAumaaWsj+oNjVT+PHrDY431cAnfsUP6h9wMtuNp4dSDVq1U4bP3r8b/Mq1U2LmDj5ZEF2/1GJqB+R18IjJtQZ0svurd0upGfeVbtZfVDmxapmtP3M7DPvv9n9T/r9uz+77G72rJzn7FdSrsdno9eONz877U5Dq5XP77V1JdEJbo1brvXIN6rP7P4n/brqR0S81iI6qLr2sjsJtH5QbVBzPYvLS0NG8dw/238jpbp+/ONdz80Pzv2M8/3MBrnWCP3YkXPZ7w19Fo5Dr8WP1o48jO4QlD2Zu5dz8oATF/X9Tqz7z+6/oVPxjtj5lwPtnm7VVtJXpLtv9ntDn4XjUHUtTh3XSVTRjyi5aH2WzO7/NCzzL1puN/VY/U60stX0w7VH/J7mTfZ7Q9WzsJTWjyYj1Nwavefs35R9GnX/4MQQVUPesI4vkv8L/z+97utbTVejjIcaB9rudLTzhdAATVtL/YiYI5H2d2v/p+rH/fNkvOeaGwfajor3/GhA64d2biX6MdKwUzWkiU+1e8aTKHVEjcPCjhufFul8a9aJu/dS2mvQrgfFvjWksaZy7ljUkaQtNQ5Lu9kY0PvMNfjbqp3EHt2e4k+qqbN3rSGNJVXzxqKOEGfqURw77N7GYKWxiLnS9HnSM+ILj7wOJg==
+  </data>
+ </layer>
+ <layer name="overlay" width="400" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztzrEJACAMAMEMIJj9p9VasJREuIPvPwIAAAB6yd08ytIjAH4wLgEAAAAAAAAAAAAAAAAAAAAAAADAawtIgwCl
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="16" y="44"/>
+  <object type="powerup_save" gid="70" x="1641" y="98"/>
+  <object type="powerup_smash" gid="69" x="4720" y="128"/>
+  <object name="end_zone" x="6372" y="96" width="4" height="64"/>
+  <object type="powerup_save" gid="70" x="2150" y="87"/>
+  <object type="powerup_flip" gid="67" x="3040" y="198"/>
+  <object type="powerup_flip" gid="67" x="3504" y="96"/>
+  <object type="powerup_flip" gid="67" x="3504" y="144"/>
+  <object type="powerup_flip" gid="67" x="3504" y="48"/>
+  <object type="powerup_flip" gid="67" x="3904" y="208"/>
+  <object type="powerup_flip" gid="67" x="4208" y="112"/>
+  <object type="powerup_flip" gid="67" x="4560" y="56"/>
+  <object type="powerup_save" gid="70" x="3016" y="200"/>
+  <object type="powerup_save" gid="70" x="3018" y="124"/>
+  <object type="powerup_flip" gid="67" x="3040" y="124"/>
+  <object type="powerup_save" gid="70" x="4984" y="204"/>
+  <object type="powerup_save" gid="70" x="5681" y="136"/>
+  <object type="powerup_save" gid="70" x="5988" y="89"/>
+ </objectgroup>
+</map>

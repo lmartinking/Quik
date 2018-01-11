@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="300"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0UENwCAQRUG09IAfJFRKJeCY8xrgb5MZBS95YwAAAAAAAHDbmw6g+NIBFH70stMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTNdACFH7086YCfW+kACj968QMAAAAAAADyDgmDA1Y=
+  </data>
+ </layer>
+ <layer name="spikes" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3UEKwyAQBdC5mjfp0XqUHq0tpbsqxoQ6Me+BuwSEv8g4EiYCYJ4S8ait2XsDAAAAgFEl4j57D2+vfdxm7yEDeeQij1zkAQAAAAAAAMBKSmMBAAAAAAAAAAAAAMBRWvNWzF4BAACYp/WPsf+PAfbJMtuAD3nAPLUZK713B+4XjnXGmTc9Z5aedzOecc6YB3ypr3K5Qh61b/5InTDyzJa64wp5QFbqq1zkkYs8cpHHNuqrXFbOo7dv9K/+UrZe1i+t/tvWBazpCbh4VYQ=
+  </data>
+ </layer>
+ <layer name="bounce" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3dFuwjAMhWFehUns/R8R7Yqpoo3t1M5J8n9Xm0LXwGlIHFD3eADAGK/Odtzrt7Md9yIPLeSh5afRTh5ayEMLeWghDy3kUatV75FHrZ71rkrtrtKPO/Tk0VorV1Hpxx2oP+ZCHlrIQwt5aGF9Vaun/lBZ16j04w7st2shDy3koSVjv2Sl+bVaTx5nbYypOPLQQh5aqvPonVtWn5uq8+it3VYfexl5ZCKP+LEZyCN+bAbyiB+bgTz8bVdroN71EXn42zLXVyvtrX9DPaiFPLS0xv9V+1nb6u8pu4rM/avvp4wUGWeMTQAAAAAAAAAA8mR+xwJ+at9b2h15aCEPLeShhTy0kIcW8tBCHlrIQwt5aCEPLeShxZOHdX/x+Dj2Je08eVjHS/Q41OTBd+vtKvKAXUUe/G80O4X5g/H0QR5aPHlY5+Xj48jDrqIebP0d1l82VXnAxnM/u6s1UiuP18nPHjus0a7eRzxztmf+iI6l3ccgeWghDy2z5LHDvPLHk4fn3jzRta/SPZWyrgHPmmn0+8XZ+UfUNlmvRcZeSpaR5z9et1l98dzjy3IdPhu/Wx/zzcg81K5NBeShhTy0jHwNvPvZO1CqP8hDq/7IOudMta1S/ZF1zpnG3Ux9jZrpOc7U16iZnuNMfY2a6XPtmfoKAP+9AYqAKLU=
+  </data>
+ </layer>
+ <layer name="map" width="100" height="100">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztl9GygzAIBe3///R9bq/RAAFOdHeGt8gh2Wqmn+M4PhRF3dYO7LBfawY+9vDRXaP5KliZh484+Jj30TWHF3zo+pjp173fp/uw0r1ffHzTvV91H9V+u+d7k48ZumfExzeRZ6uonmtlHj608vChlWc9V3z0542y8dGTN8rGx/o8vldaedznWnmrfJz1uFtbURVc5WXPjo//4AMfd/09z+ADH+rgQwt8aNHpYwX4wMfVDNW9rPvOPi98aH0X8IGPqxmqe/G9up6huhf3+fUM1b3wcT1Dda+VPqzl6VcBPvBxtn4HH+qVdVZn/TPnnqX7vPGRuz98+GfoPutOHx6iz2ehOtcZ+NACH1rgQwt8aIEPLfChBT60wIcW+NAiy4elRj1W9F6xr0pWzb3qjPChNTc+tOb2+PD2VAQfWijcH9Z7BR+xXviYJ8tHJviw98oEH/ZemeDD3isTfNh7ZYIPe69M8GHvlUnEx67lAR/4UPPh3cNbfXhzVoMPfGSh6sNypviI+bg7J+uZWn1EK5M3vh/4wMcs+MCHZy583K/35njmUvJROUfknFave6MPK5Y+kUzvfDP5VT4q2N3HLmS8Z/gYz1H53t7NYdlDhEh+Ri4+et6P7Fx8xHIrs7J9RPaDj7m1o+cia85miPweouzoY+aZyAxdLn6zKzIiv+PO96OKjkx18KHFG+6PnVBwUXl/qPN0H79Z6uBDi677ozJzdx9PY6e94UOL2f+klfX0/VEUFa8/aRQOuQ==
+  </data>
+ </layer>
+ <layer name="overlay" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3M0KgkAUgNFZtojqGYJ6D33/h6qlgdZ0x5+bnQN3l0J9KA7klAIAAAAAAAAAAAAAAAAAEHOeGLZxmRi2MdWjZlxH82vp4Tqanx65HBsHAAAAAAAAAAAAWI7/WeaiRx635xyKHlncix6ZXIsev0SPXPTIRY9c9MhFjzrdYJa05x7D73QKnmNqT4Kl3qfO/h5k6zu2rT22WBf0g8nmH3tk9u1a9t1E7jF6vJqzR+Q31OPVWI816ZGLHrm09KhZs6y1rtmLSI+aNcvwGcN+a/UiPWqOcR+MiewfVHOMfYni+pGZ45jIeQEAgP3qPkzt51oHYA8e/EgmEg==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="60" y="60"/>
+  <object name="end_zone" x="668" y="256" width="4" height="64"/>
+  <object type="powerup_smash" gid="69" x="456" y="164"/>
+  <object type="powerup_save" gid="70" x="568" y="148"/>
+  <object type="powerup_flip" gid="67" x="1380" y="152"/>
+  <object type="powerup_save" gid="70" x="984" y="88"/>
+  <object type="powerup_save" gid="70" x="460" y="1544"/>
+  <object type="powerup_save" gid="70" x="368" y="1264"/>
+  <object type="powerup_save" gid="70" x="992" y="1112"/>
+  <object type="powerup_save" gid="70" x="1164" y="1120"/>
+  <object type="powerup_flip" gid="67" x="1188" y="1120"/>
+  <object type="powerup_flip" gid="67" x="972" y="1112"/>
+  <object type="powerup_flip" gid="67" x="1012" y="1112"/>
+  <object type="powerup_flip" gid="67" x="992" y="1132"/>
+  <object type="powerup_flip" gid="67" x="1336" y="1304"/>
+  <object type="powerup_flip" gid="67" x="1241" y="1304"/>
+  <object type="powerup_flip" gid="67" x="1049" y="1208"/>
+  <object type="powerup_flip" gid="67" x="936" y="1208"/>
+  <object type="powerup_save" gid="70" x="880" y="1440"/>
+  <object type="platform_normal" x="608" y="1376">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="0,0 0,144"/>
+  </object>
+  <object type="platform_normal" x="752" y="1376">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="0,144 0,0"/>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="20" height="200" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="60"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="20" height="200">
+  <data encoding="base64" compression="zlib">
+   eJztw8EJADAIBLCb1dL9V6jQDfwJCST5qp/hGwAAAAAAAAAAAAAAAAAAALZ7X/4GMg==
+  </data>
+ </layer>
+ <layer name="bounce" width="20" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt0aERwDAQA8GvJTNx/yWGmgTZYMEJCS25mZl3zrcb64K3fr7oPRe83ajHmVcPy6uH5dXD8uphefWwvHpYXj0srx6WVw/Lq4fl1cPy6mF59bC8elhePSyvHpZXD8urh+XVw/LqYXn1sLx6WF49LK8ellcPy6uH5dXD8uphefWwvHpYXj0srx6WVw/Lq4fl1cPy6mF59bC8eljezR4fVhA50Q==
+  </data>
+ </layer>
+ <layer name="spikes" width="20" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt20ESgyAMAEC/5s/ztF69tAIThYbdI2BGQ4JePI7/dA7O/bgmRuYA3tJztrWs7TnbnIOwB99XMGakP27iRXLIkXvIjhfJIdlUtdqs9jzs6Vsd945f5iNjnL04T9dnj+aYlXf7zVPeri21PI/c00KdPEdu78kR1KW/IZ++kgNYXYUerfAMsDI9Brka/3PoiRcZayCL9wZQzQeE0yhB
+  </data>
+ </layer>
+ <layer name="map" width="20" height="200">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzCESACAMBDHu/5/GYCugdWRn1iZrrpx5PB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+PxeDwer+ul+NW77UdvAyD7AZc=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="117" y="3115"/>
+  <object name="end_zone" x="44" y="8" width="232" height="4"/>
+  <object type="powerup_flip" gid="67" x="184" y="3116"/>
+  <object type="powerup_flip" gid="67" x="82" y="1920"/>
+  <object type="powerup_flip" gid="67" x="256" y="1904"/>
+  <object type="powerup_flip" gid="67" x="48" y="1904"/>
+  <object type="powerup_flip" gid="67" x="222" y="1920"/>
+  <object type="powerup_flip" gid="67" x="116" y="1936"/>
+  <object type="powerup_flip" gid="67" x="152" y="1952"/>
+  <object type="powerup_flip" gid="67" x="188" y="1936"/>
+  <object type="powerup_flip" gid="67" x="82" y="592"/>
+  <object type="powerup_flip" gid="67" x="256" y="576"/>
+  <object type="powerup_flip" gid="67" x="48" y="576"/>
+  <object type="powerup_flip" gid="67" x="222" y="592"/>
+  <object type="powerup_flip" gid="67" x="116" y="608"/>
+  <object type="powerup_flip" gid="67" x="152" y="624"/>
+  <object type="powerup_flip" gid="67" x="188" y="608"/>
+  <object name="hint_text" type="text" x="96" y="3140" width="128" height="16">
+   <properties>
+    <property name="value" value="Better jump quik! ;-)"/>
+   </properties>
+  </object>
+  <object type="powerup_bounce" gid="68" x="156" y="3116"/>
+  <object gid="69" x="256" y="1368"/>
+  <object type="powerup_save" gid="70" x="152" y="2048"/>
+  <object type="powerup_save" gid="70" x="152" y="697"/>
+  <object type="powerup_bounce" gid="68" x="152" y="1920"/>
+  <object type="powerup_bounce" gid="68" x="152" y="592"/>
+ </objectgroup>
+</map>

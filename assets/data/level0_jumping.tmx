@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="300" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="128"/>
+ </tileset>
+ <layer name="spikes" width="300" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0UEJADAMBMGTlvg3VQX9FRrIDKyCTYApOind+/0HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2aOlhB+UESd0=
+  </data>
+ </layer>
+ <layer name="bounce" width="300" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G9nIAAB
+  </data>
+ </layer>
+ <layer name="map" width="300" height="22">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3LENgCAQBVDYzNEczdFsLTDigSjxveQq8ESLnxiVlOBZOVC1fXrPu3PcqDFgHHnVNgaMI6/axgAAAAAAgL5ySkupGvptpfrK+g59vY8AAAAAAAAAAACKIv9dX/RaT+rVtUX7+f4KAADg3yJ7qd19jn2z51PXXWPEve197tpeLfMgSl7JK3nFLOSVvJJXzGIHCoAMZA==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="64" y="304"/>
+  <object name="end_zone" x="4792" y="132" width="4" height="104"/>
+  <object name="reverse_help" type="text" x="2336" y="244" width="112" height="16">
+   <properties>
+    <property name="value" value="FLIP of faith"/>
+   </properties>
+  </object>
+  <object name="flip_down_help" type="text" x="296" y="144" width="112" height="16">
+   <properties>
+    <property name="value" value="Don't forget to FLIP down!"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

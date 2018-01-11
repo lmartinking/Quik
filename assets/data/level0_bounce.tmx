@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="58" height="28" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="60"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="58" height="28">
+  <data encoding="base64" compression="zlib">
+   eJztzwENACAQA7G3ihQk4BgXGwmtgrsZAAAAAABes9oBIbsdEPLL52kHBF1M/AH1
+  </data>
+ </layer>
+ <layer name="spikes" width="58" height="28">
+  <data encoding="base64" compression="zlib">
+   eJzt1bkNACAMA8CMRvZfigUoQOIVd5I7F+4cwY0yoozk9F4A+EXvD8/uAfC+bGRHDwCANSrZqBFr
+  </data>
+ </layer>
+ <layer name="bounce" width="58" height="28">
+  <data encoding="base64" compression="zlib">
+   eJztWFsOxCAI7FlM1nNy9M32Z1mi4GB9bMv8YIQRx9JgPI7n4NURj3A7eMQtAs7JIDdXxgN5xC2CHDpPaDWm7XcQj7hFYOnU9pQq41E8phNGj05j3ct5D9RJwJI/3A9kDcm5kr+GEbz8tSR5vG+U+o7nbFZB0ynqUvV7+u9MaHWL6Nz924bO0Nnq3wmhM3SW5tLmOpOwHA06bwFEZ+mesODNwMUT92Lq9HvzDufxWnb+v668s3liDZJzDedQzbvyrUGD1Tesc5jxZtDK0+DRacTDe7iKZ8RRj1/L+0860XvCyrcGI46AZW+JN6kXTQA=
+  </data>
+ </layer>
+ <layer name="map" width="58" height="28">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmGEOwyAIhfFmPdqOtqOtW+ZiUHiWirErJO+P9FNeKLFpInqk64jOyBI793xrJneUKdjb+0Q9l+r15IRSYaB+5rkQcmJfvDilVDVu5lPkpXP3ta2UN0egThRWnx37DueUdwDeHf/g85tD8/ebF6ack+5rdzn4bO3ZlHbG6Oca61WdiGF5kV8pwmf4ZHmRXynCZ/hk+YqffYcgkVAn3wfkq3tZ+X6YLf79cMqnkv+cp2yxChc+ye4TzZ43p82x4MPcz9ZcT+AO+yzyzTOd6zVzln5mXljf0sR/Br3caJ8otL54cuGzm7+CuDfVd6kXfCO5jA==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="36" y="136"/>
+  <object name="end_zone" x="920" y="372" width="4" height="56"/>
+  <object type="powerup_save" gid="70" x="624" y="168"/>
+  <object type="powerup_save" gid="70" x="568" y="424"/>
+ </objectgroup>
+</map>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="18" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="40"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="200" height="18">
+  <data encoding="base64" compression="zlib">
+   eJzt0zERACAMBMFYRQoS4hgFNDSfYXYVXHNVAAAAAAAA/1jpABhspwNgMH/AXacDAAAAAAB4dgBDTQH1
+  </data>
+ </layer>
+ <layer name="spikes" width="200" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztltEJgDAQQ7uamziqo7mAFLHIu3fN+w8JSQ86Rn2OMc7oow/P0P1Gn/ddGXqf6HMflaH7tb+P3f27Q/eb+2D96fzVofux72v3p/NXh+7Hvi+dn9Z3x94vnf+N/oD9/9R3x94vnf/lfVyk/5/67tj7pfPvru+Ovd/8j9z7dce+j+F/VPk+wxz7PnR+w32G79j3ofPb9WGOfZ/45z5m0O/brl9ld//q0O/Lrl9ld//q0O8rerd+hRuPdFWJ
+  </data>
+ </layer>
+ <layer name="bounce" width="200" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAA8GY4QAAB
+  </data>
+ </layer>
+ <layer name="map" width="200" height="18">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmUEKQjEMBevRvIlH7dHcujFSn5/JM2/A5TAlbVBwLQ9uoH9f6/GD/hZ9tT/a/3fo+WY/WD/U0PeT/WD9UEPPl94PFff5hRp6vtkPtk+fvzv0fLIfbJ8+f3fo+UzfD3f/tPXp0w2n+b7pb9FX+6N9t+4prvN96W/RV/ujfbfuKa7zfelv0Vf7o32lm99X15P9YP1Q434/9Pnd/dNW1++Jq3C6nyv60/1Q434/9Pnd/VDjfj/phwr6fdP/D9LvY3q/Ow3et+pvsq8yvd+dBu9b9TfcH+1/yxPV0wu4
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="24" y="152"/>
+  <object name="powerup_help" type="text" x="132" y="124" width="68" height="40">
+   <properties>
+    <property name="value" value="Use this POWERUP to FLIP continuously"/>
+   </properties>
+  </object>
+  <object type="powerup_flip" gid="67" x="56" y="152"/>
+  <object type="powerup_flip" gid="67" x="672" y="215"/>
+  <object type="powerup_flip" gid="67" x="1184" y="152"/>
+  <object name="end_zone" x="3192" y="112" width="4" height="64"/>
+  <object type="powerup_flip" gid="67" x="1696" y="87"/>
+  <object type="powerup_flip" gid="67" x="2208" y="80"/>
+  <object type="powerup_flip" gid="67" x="2720" y="48"/>
+ </objectgroup>
+</map>

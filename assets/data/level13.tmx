@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="44" height="22" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="45"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="44" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzkENACAMBLBZRQoScIwBPnssF5JWQauAaSsdaNrpQNNv35MOAADwdAG+jAH1
+  </data>
+ </layer>
+ <layer name="spikes" width="44" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztlssNgDAMQ7MamzAaozAaXBsC+Vm0kWIpB1rLflWRgKimNqLTM9YcRBfPuZ+PwPl2Ye2Rw32RLp5TgTebsRqvxKPtR3m1Lm+PtQPFq91B8377NM9MXou8d9C8Pq3Ei3p/Z/EiPM1bg1cS6nuc5bXqr//J5s1lCTnDCP7QvHRDciroAiDKjQc=
+  </data>
+ </layer>
+ <layer name="bounce" width="44" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAABgPIAAB
+  </data>
+ </layer>
+ <layer name="map" width="44" height="22">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztlUEOwCAIBPH/n+7VGNMOsG2KuokncHdCiDYzawWPV9RHkTX6REU5FFm9T/b+F7wrzvcpR8lLvKhHJmPsU/Rk6yvzkt2K1JW8RH+aL9Hhvc94e389PBkOL8vhnWdU5FXsJvGJ8lKp35Bo3ZuzK+/MR/UX0B2P+FQ4Fwn+AUw=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="48" y="288"/>
+  <object type="platform_normal" x="-100" y="328">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,-24 164,-280"/>
+  </object>
+  <object type="platform_normal" x="28" y="328">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,-264 164,8"/>
+  </object>
+  <object type="platform_normal" x="188" y="328">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,-40 164,-312"/>
+  </object>
+  <object type="platform_normal" x="332" y="328">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,8 164,-312"/>
+  </object>
+  <object type="platform_normal" x="476" y="328">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,-264 164,-40"/>
+  </object>
+  <object name="end_zone" x="680" y="64" width="4" height="64"/>
+  <object type="powerup_stop" gid="71" x="64" y="288"/>
+  <object type="powerup_stop" gid="71" x="144" y="76"/>
+  <object type="powerup_stop" gid="71" x="304" y="292"/>
+  <object type="powerup_stop" gid="71" x="424" y="176"/>
+  <object type="powerup_stop" gid="71" x="588" y="76"/>
+  <object type="powerup_stop" gid="71" x="592" y="292"/>
+ </objectgroup>
+</map>

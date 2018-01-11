@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="30" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="60"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="200" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0zERACAMBMFYRQoScIyCL6gSZnYVXHNVAAAAAAAAAAAAvFjdATDY7g6AwfwBmT8g8wdk/oDMH5Cd7gAAAAAAAAAAAL5wAVBuA/k=
+  </data>
+ </layer>
+ <layer name="spikes" width="200" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEOgyAQhWGO0qPUm/RoPZpHqQu7MRlUlOHN+H/JxE2TguGJCKXUTaXMOz/pbmnDZ72+KcqzDozNufPw3zWt+QDUkA/AppAPQBX5AGzkA7BFyMfkVNFEbHM0Z/KRdZxFtNzn13r9jm1Jbh7zx5X/UPseriRae/coPlvV84FneNJ8uN3PIB84YtR86D0+yUed6HtECi39IB86FN8jFNvUorUfjE8tiutqxTa1aOkH+QBs5AO9RV6/kA/0NGr9clcmWZ+jN+/1y52ZJB/IKOo3BfKBLDhfAtjIxzWcvc/t5Pn2dGdggZrMz3YPnLvPjXwANvIB2MgHYFPIx3a/BFBBPgCbUj689hIo6l8/BQrnhw==
+  </data>
+ </layer>
+ <layer name="bounce" width="200" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt06EVgDAQBcG0kv6bRCOWhwsJM+rkib9jAADwN3P1A/Bh+oCmD2j6gKYPaPqApg92Z8NwN+MG9AFP9AFNH9D0AU0f0PQBTR/wjj5gDe1B0wc0fUDTBzR9QNMHNH0AAMAZLnSyBCE=
+  </data>
+ </layer>
+ <layer name="map" width="200" height="30">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3EtuhDAQBUC4eY6eVZZNsN3+UiWxGRmwTL8BA+K+rut+WJ68afd2W/+1f7s+ZHrKxko1GfUlK89RJlcag0yzjvHE/f78LYXrbZ0P6Ek+ICYfEDs1H6VzkprfON/u+RjZx5XGgzEy8lGapZr9vL1/1XvhW1rrYVTNqU1maKndkf/J8sEMLfXbct1Rc46C3rKvqUfkA2aQD4jNzAesTj4gJh8Qkw+ImZ9DTD4g1vp82/NBTpP57of3Szhda+3KByfLqt2S+q3N4Y6yzrEZx4lyu4z7Sn3hO+RjvMz7Eqsdp9PIB8TkA2LyATH56CtzrlHSrqe78ludO+63Vz5qtxOtM7sm+KZfZVcGVg==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="48" y="256"/>
+  <object name="end_zone" x="3173" y="176" width="8" height="128"/>
+  <object type="powerup_flip" gid="67" x="360" y="248"/>
+  <object type="powerup_flip" gid="67" x="392" y="248"/>
+  <object type="powerup_flip" gid="67" x="376" y="232"/>
+  <object type="powerup_flip" gid="67" x="376" y="264"/>
+  <object name="input_help_text" type="text" x="704" y="232" width="160" height="16">
+   <properties>
+    <property name="value" value="Get ready to fly!"/>
+   </properties>
+  </object>
+  <object type="powerup_save" gid="70" x="496" y="248"/>
+ </objectgroup>
+</map>

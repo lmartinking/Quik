@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="20" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="60"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztyrENADAIwDBureD/F+gMvaCypWyJ2M4tR/X4AAAAAAAAAOAXDfvoAlg=
+  </data>
+ </layer>
+ <layer name="spikes" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztmEESgCAIRTla3sSjd5TauHFoskT9yH8zLGoMyD8joAjZkSRyFHt7Lu+M45/WPmdy559X52AJ9cBC0yMphkoEPTyxmx5/QNoDpFxGUfcQdR8RYQ88MUuPFfWrjskaqsdArXOeeh9LUPWISq8eWk3U5uvWda3ffbHR/9aDl/MqEiPviQiJAGchLKgHFtQDi5310GbNnnnT2t9DjGzskhhwAbxANa0=
+  </data>
+ </layer>
+ <layer name="bounce" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztl9EKwCAIRfuWoP7/E/cqMilF647d87IxTIUT2VojaIxDa7JzV/UwjPes+BUzsKYn1LXY7SfStzfvTg1vvCcfAvSBhe5nqKcVl0U33rPiV6D7mIvvGdyYExZoPvQes3xkzrAb55JE+o3krtwfGstHRY3dmOxeZL7IPqu8X1m1KmvemBMStDPq79AHFtLHyVlA3qmcTcQPfWAh7wf0gQV9YEEfWNAHFif/tQn5Eg+XBgtF
+  </data>
+ </layer>
+ <layer name="map" width="100" height="20">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztl8EOhCAMRPH/f3rjlQh06FDH7Lykh9UKLQ80e7XWri5G9HlVoVDDW/0izNZs9rt/NlNPtgfWuIw6WD4YNdhHbgzmOqx8RO6x+ZoPNqvzMbu+uhf9Fq3GRfNRlHzcZHxEv1GROZmeEKreV2guer1yDU7u4apekL0z28e78+/Mx8o/Wcvo+afzO8rLnMcTVPiI9v70fq0KtXre7Puf+leLiA9zFvv4JvahhX1oYR9a2IcW9qGFfWix+x/GeVgeEj+kFAH+
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="48" y="256"/>
+  <object name="end_zone" x="88" y="4" width="80" height="4"/>
+  <object name="spike_help_text" type="text" x="44" y="204" width="104" height="16">
+   <properties>
+    <property name="value" value="Watch out for spikes!"/>
+   </properties>
+  </object>
+  <object type="powerup_save" gid="70" x="1320" y="128"/>
+ </objectgroup>
+</map>

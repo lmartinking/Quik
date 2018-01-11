@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="50" height="50" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="120"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="spikes" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2mEKgCAMhuEdLW/W0TpaBAWx0jm1GPg+sD9O0f58RCYylySyHDVgfNOV2e8xL1fdDwc4pVvlet7xt97ZX3U1HHlKVw7l8qh23tu4XlO7FxBZEjuTpNC31sGv9f2LXMJsyKWYyCEAAAAAQGS139j+PxnwPX0f0HL3ifG895WlcasHRFPKJZ1BPf9rkGe2HXB1Ovs=
+  </data>
+ </layer>
+ <layer name="bounce" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmksOhTAIRbsWE93/El+c9rWE4gVulTtkAkfpSfy09o6c2QMAcjNc2UMAcrXiYMqbOI7sIQC5GWa+YvSYNOtsrxj3TZq1OOLzBY6Zrxg9Js266qsIj1lmWt2riH2zzFQcfvkyx6qvIjxmmQnlK4vHkL1Re2XZN2Tv4tDVpezAMdrlvobsjfJVXx/17GvI3l6+0nDs4KvRtdPcM2u9zrmuLqU4/utevtKE0VfIMD4PWrgZnz+izk1x6BLF4e2lKI/V+/ZnQXssiwN9borjWdAcWe+p0B5j9NJqGP9nsHqMjcN6borDJ1YOtu+ASI/tmB99bCYq
+  </data>
+ </layer>
+ <layer name="decoration" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzrEJAEAIwEBnlXf/FbT4HUS4g/SJAAAAAADYl9P71fILAAAAADc1ySQBkA==
+  </data>
+ </layer>
+ <layer name="map" width="50" height="50">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2VEKACEIBUC7/6X3s5+ChSzZdga8gT0NW0S0Cwr4r+r8kUvAKrkEfJ1cgvdGve89wF3MPehmvW9PBKpk/V3lGJCl6jYgx4CZU3fL3fUAtKkA+g==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="608" y="768"/>
+  <object name="end_zone" x="368" y="416" width="64" height="16"/>
+  <object type="powerup_smash" gid="69" x="536" y="160"/>
+  <object type="powerup_save" gid="70" x="48" y="152"/>
+  <object type="powerup_save" gid="70" x="144" y="236"/>
+  <object type="powerup_save" gid="70" x="532" y="660"/>
+ </objectgroup>
+</map>

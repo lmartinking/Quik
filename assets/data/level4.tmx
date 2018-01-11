@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="40" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="120"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="200" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt0zENADAMBLFQDZRCKOMi6PyJZCO45aoAAAAAAAAAAAAAACCr0wEw2EkHwGD+gL+bDgAAAAAAAAAAAAAAAAAAAAAAVnsa8QH1
+  </data>
+ </layer>
+ <layer name="spikes" width="200" height="40" opacity="0.98">
+  <data encoding="base64" compression="zlib">
+   eJzt242NgjAYBmBGuVF0E0a5URzlRmGUu0s04QhViv354J4naSKC/WriK9LiMAAAxHUdhsu89R4PRCYjlHZdaS1qVaxxKdjXrVRfUFNOhktlRD44gj3nmxIZkQ+ie+e32LsZkQ8iq3mdMqsxPtl3azCEtbqfj6Y/1rTIxr3O+GTfrdEw5jU/So7hv/VXynLN4NV2oo8qc1+tsnGvNTYsB2HUnEuWK0iTj3Nbfre+2uYv+YA0+aCWresSy/sPa7fM9zDueOtQxM/nb+pQc2xdE/aIkI8oc/GwJB9EFOW/RvLBEZX4jb5l3lg+OKJW17DyQU/P7pmKsDYoH5AWIR8QVfR8yBI9yQdRzOd0U4+3vPbFcV+ZY5pyji9BPugpNyOtyQekHSkfK3Ntk/7qmM/nph5vee3R9f7M5/o9Hz+a/o7nnexEuP6w/kFU8gFp8gFp8gFpPfIBe6XmDnKfz6g37R0rnJ18QJp80Nt10SKRD0g7az6+AVEijqI=
+  </data>
+ </layer>
+ <layer name="bounce" width="200" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztm1GSgyAQRL3Kpip7jrn/qbbysVUEUUFHfA3zfubDTgtmWlnMLsuyvBcf3lkNv2AEfp19wm98ZronUPtlNj8les2ZkENqv8zmp0SvOROuLbVfZvNT4ql8nH2eXHkOUftlNj8lnsrH2fNeGS+1X2bzyyGsvT+UxvHqdO78PJGPef22/J+GMo4PZ3MZ+dD3y+l1jz6ClI+zRD70/aiMML8r9xpqv8zmR2X0+R1xNP/a31HU9kv4aaGSj7uu79H8a/tgIJ2ltZcfldL8iFl/ap9EoJ+9dZbWXn5USmt34jMl8tFNZ2nt5adE5GN9fCKdpbWXXw5xDfMPMR937YeD+/QpnaW1l9+WPxHy2LwB96m3ztJK0+VQ3g+WUMvHnb9PFOj7Wp2llaZTQi0fV8YL7mdvnaWVplMi8rE+PoDO0krTKRH5WB8fQGdppemUUM5H698i4H721llaaToqpX5Sy0e619E6dsc+qDr/g35oHZXS9VfLR0rkQ1OX89MivhGVfNSum1r3zSMfDB2V0vUnvpu5K7ORD4aOCvFZUSLycdkPraMS+fD5fl9ZDb82Pyoq+fBY823s1dneZ7y/3/DTQiUfHmzsRdjBZ6xG1zCG8BNihHzU7m1FPnT8KP//UeoZythqqc14aY3WkA8XKP1H96Pct1Xef+xxZbyRD6Yf5R1D5CPyoeTXm401B469NV/kYx4/AsR87D1vrzyLvd7TtZ6P2n90PwLEfNxF5EPLj0Dk4+v4V/U6H7X/6H4EKHsHPTiaa+3vKFrPF34BnT84m6Hr
+  </data>
+ </layer>
+ <layer name="map" width="200" height="40">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztl9tuAyEMRJs/59OjSn2pBXjwBczujITUZO3DbOIJ289PrD7khbKrLKu33feT8VlGirxYdpVl8Rd1PxFiPp7Bi9KOefAyds4m8/EMXqSyZyGTYT2DrPswH3fwJBv5rmY11jlA7itqllZn0zrHzMf9PMmO+E4j6hF/K/eC3ivCYj7ew+vxszOi1SHeLL6RHm1f5uNdvB4/MyPIXpovj2ekF+VrYj7u5/X4kRmx7JPtd1XMx3t5kh21PPvs8Luiavn4q2u/C6klz87r9P3bA32Nfs9Rs5udYXSvDH+gp4Z6J8/Oi1TEzHpyZd0na46Zj/t50cr8Xc/ISIZPr19ET5m/6jzJHv22oq8lh/lgPm7mSXbUvGTM3uk8ZOSj14PoKfNXndfjn84I6m23ovMx6gG9NLCOPAevx9+dEYu3U7JmeaUP9NHAOvIcvB5/Z0as3k4p4vzQekAfDawjz8GT7MilsT3+Rtd3vOfJh6VmwG5gHXkOnmSjM+/NiEW3nx/adeajHi9DWkZmtbP7uzkfs2vMR11ehtDvfHVGbs3HjMF81OZJtvZcNHrGGtWizCefH6N+5qM+T7KtC2Ug+yH+Tsnrlfm4i9fjZ+YDmRfE2yl5zw/JYD5q8yR7Rz60jCD+TsmSj9WMgD4aWEeegyfZ2uwjfyO5me2PeDslaz5WMgL6aGAdeQ5eNZ2cfUSefKAZAX00sI48B6+anp4PJCOgjxbslbwF/urzFdKLPmNVFjrLs89E9mWeH6jIg3q2rpEHxNspRZwfzMe9vN0ZmZ1RM2+nFJEPrQ700cBS8gJ5zMdc3nxYagbsBpaSF8hjPuby5EO7znzU5p3KxhvyMbtmzEeoyMN6vPMtOej7skbzd0qWfMwYzMczeBVULR/IWaf1r5yl6DlrEXn3S5vL6vccfRZHeyNP71l5Zh5di3hf83ebrM+qM160P/L0np3/c6zkwzJDGVp9vlpdXw9oSZA=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="66" y="605"/>
+  <object name="end_zone" x="3196" y="224" width="4" height="64"/>
+  <object type="powerup_flip" gid="67" x="161.333" y="78.6667"/>
+  <object type="powerup_flip" gid="67" x="480" y="78.6667"/>
+  <object type="powerup_flip" gid="67" x="801.333" y="76"/>
+  <object type="powerup_flip" gid="67" x="1118" y="71.3333"/>
+  <object type="powerup_flip" gid="67" x="1440" y="128"/>
+  <object type="powerup_flip" gid="67" x="1440" y="80"/>
+  <object type="powerup_flip" gid="67" x="1440" y="32"/>
+  <object type="powerup_smash" gid="69" x="1736" y="200"/>
+  <object type="powerup_save" gid="70" x="1332" y="224"/>
+  <object type="powerup_save" gid="70" x="1364" y="224"/>
+  <object type="powerup_save" gid="70" x="1394" y="224"/>
+  <object type="powerup_bounce" gid="68" x="1852" y="344"/>
+ </objectgroup>
+</map>

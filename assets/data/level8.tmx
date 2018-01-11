@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="14" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="45"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="200" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt0zERACAQA8G3ihQk4JgZeuqk2FVwzc0AAAAAQKeVDoBiOx0AxfwBfycdAAAAADwXARkB9Q==
+  </data>
+ </layer>
+ <layer name="spikes" width="200" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt1ssJgDAQBcAtTTuxNEuxNHP0kB9IINEZeIeQzSXwYCMAAADWskdctWTmt1rezj/fzH7HOOnPj5SzdIY/0w8oa/Wjd9+BL+roRzbwB7PsV6Uelvo4ej4WumOcWfoBAADQcgPpZzjt
+  </data>
+ </layer>
+ <layer name="bounce" width="200" height="14">
+  <data encoding="base64" compression="zlib">
+   eJzt17EJwDAMBEDPEkj2HzETSIXBSEruKoH57r/wWpC7g7tbDio8wd0tBxXsA2L2ATH74O+yP3HW1045OCXr5JQ3OKVTz+2DbrLeXcHdLQenTPmD2wcVpvTcPqgwpef2QYUpPbcPKmR/4i/kdr3EwxJv
+  </data>
+ </layer>
+ <layer name="map" width="200" height="14">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztl1EOgzAMQ8PNdjSOtqNNSCDxsdIkaourvif5h8SsIHvazADqbKfUfa38ABFW7ceWUOY+o/dtollp1/suovMMs/bjDWXOM3rfJpqVdsX6sR9S99383TMP6+Do3PeQui8K/QAvT9/Zpbyq+aLU+kA/4EIp56P6UYN+wIVSzukHqKGUc35fgRpn7v5d/9yl6svg/X8eUeZzRu/bhDPvs7eee874hKKvR+7px7sz+tHO1zPrsCaKOc/6yDe0RjHnWV+rfvwAq4Ewjw==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="64" y="144"/>
+  <object type="powerup_smash" gid="69" x="249" y="122"/>
+  <object name="end_zone" x="3192" y="80" width="4" height="64"/>
+  <object type="powerup_smash" gid="69" x="637" y="119"/>
+  <object type="powerup_smash" gid="69" x="1061" y="118"/>
+  <object type="powerup_smash" gid="69" x="1394" y="119"/>
+  <object type="powerup_save" gid="70" x="1641" y="82"/>
+  <object type="powerup_smash" gid="69" x="2912" y="157">
+   <properties>
+    <property name="time_limit" value="45"/>
+   </properties>
+  </object>
+  <object type="powerup_smash" gid="69" x="2912" y="82"/>
+  <object type="platform_normal" x="288" y="12">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="32,4 480,4"/>
+  </object>
+  <object type="platform_normal" x="912" y="12">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="0,4 528,4"/>
+  </object>
+  <object type="platform_normal" x="288" y="204">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="480,4 32,4"/>
+  </object>
+  <object type="platform_normal" x="912" y="204">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="528,4 0,4"/>
+  </object>
+  <object type="platform_normal" x="1552" y="204">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="432,4 32,4"/>
+  </object>
+  <object type="platform_normal" x="1616" y="12">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="32,4 288,4"/>
+  </object>
+  <object type="platform_normal" x="2128" y="212">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="48,4 144,4"/>
+  </object>
+  <object type="platform_normal" x="2240" y="4">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="48,4 144,4"/>
+  </object>
+  <object type="platform_normal" x="2352" y="212">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="48,4 144,4"/>
+  </object>
+  <object type="platform_normal" x="2464" y="4">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="48,4 144,4"/>
+  </object>
+  <object type="platform_normal" x="2576" y="212">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="48,4 144,4"/>
+  </object>
+ </objectgroup>
+</map>

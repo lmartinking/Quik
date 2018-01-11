@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="42" height="22" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="45"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="42" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzjERACAMBLBaRQoScMzK2O2vXKIgVQAAwGulA007HWia8jzpwIcuY6wB9Q==
+  </data>
+ </layer>
+ <layer name="spikes" width="42" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzrENADAIBLEfjey/FBtAGQpbuv4SAAAueklN/f4D2DQXXQQJ
+  </data>
+ </layer>
+ <layer name="bounce" width="42" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0zEKACAMQ9GeRbD3P6J7oDg0oYj5i1v6FiOcoj0NKEJXjijuocvOXj87N7yMFM6El5GddrK2Fc5V3OikcFY3GBt22snuFSf+/84GY8tpO3EQCBc=
+  </data>
+ </layer>
+ <layer name="map" width="42" height="22">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztlEEKACAMw7b/f9qTN0HUzE1poNcRKJ2bmSdmRKYP5VkZebL84rm6gxu7oojoRp4s8mR51fP0f8w8o/7WDuq9vme/K0/27kueCpMGo40BEQ==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="64" y="304"/>
+  <object name="end_zone" x="668" y="256" width="4" height="64"/>
+  <object name="input_help_text" type="text" x="104" y="252" width="160" height="16">
+   <properties>
+    <property name="value" value="{PRESS_FLIP_KEY} to FLIP gravity"/>
+   </properties>
+  </object>
+  <object name="fall_help_text" type="text" x="496" y="40" width="112" height="32">
+   <properties>
+    <property name="value" value="Remember, you can fall UP and DOWN"/>
+   </properties>
+  </object>
+  <object name="spike_help_text" type="text" x="464" y="248" width="160" height="16">
+   <properties>
+    <property name="value" value="SPIKES can hurt!"/>
+   </properties>
+  </object>
+  <object name="bar_help_text" type="text" x="128" y="120" width="128" height="40">
+   <properties>
+    <property name="value" value="If your BAR is EMPTY, you need to LAND before you can FLIP again."/>
+   </properties>
+  </object>
+  <object type="powerup_smash" gid="69" x="484" y="132"/>
+  <object type="powerup_save" gid="70" x="361" y="74"/>
+  <object name="save_help_text" type="text" x="312" y="36" width="120" height="16">
+   <properties>
+    <property name="value" value="SAVE POINTS can help!"/>
+   </properties>
+  </object>
+  <object type="platform_normal" x="392" y="148">
+   <properties>
+    <property name="size" value="2"/>
+   </properties>
+   <polyline points="-24,-28 168,-28"/>
+  </object>
+  <object type="platform_normal" x="116" y="208">
+   <properties>
+    <property name="size" value="3"/>
+   </properties>
+   <polyline points="164,8 164,-104"/>
+  </object>
+  <object type="platform_normal" x="-84" y="208">
+   <properties>
+    <property name="size" value="4"/>
+   </properties>
+   <polyline points="164,-8 164,-104"/>
+  </object>
+ </objectgroup>
+</map>

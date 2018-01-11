@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="16" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="45"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="200" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt00ERACAMBLFaRQJScIyCvq8wiYL9bBUAAAAAAMD7VjoABtvpABjMH9DzB/T8Ab2TDgAA+NgFdksCtw==
+  </data>
+ </layer>
+ <layer name="spikes" width="200" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt2NEJhDAQRdGUYit2sqVsKZZiKZaiggt+bDCSlzBP74GgEJhMzIyCKbU16uN99yEOa+Pt+3dydVbb3Oe4TqL1htP9IohnRb3/Xt7Y06Vntc3N4nVnRUx179YqrSHV/mvdyHc43S8NUwqn5qwivFMi1NnOrYbu5hulp1241UMPbjXklq8bni8AAAAAoLfW/9h///IBR/QHkPeU/hj/DHVM+Lk6w4L5qVlyie8HvNEfQB79AeRF7o8V5KU3kg==
+  </data>
+ </layer>
+ <layer name="bounce" width="200" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAB4NjIAAAE=
+  </data>
+ </layer>
+ <layer name="map" width="200" height="16">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmUsSgCAMQ/X+l3ZYuRGhfNok9M24lZA2VuW6ki/uwQsBND2JJozZKCBq2kmrDqh1UoAtG4WaLlS9CTdM2fgDVTOrn8kLezYK7HOF2fsTUK2P4p6SOjtrrdhH7HMl6Uf1GV9j515P8vEEFL4RrKjm46QaeqDyj6mG0jtQRG2Y/FkN4xmFFaZ9tHyPygeDd6vpzQaLPyxzYqb/I/OB4p8H1mww+KOgEz0fljVHe2y0B6Pu45GjFeug5gPJZzT9mY8+kPtjFiSf0fRnPvpA7o9ZkHz21P8AutUCOg==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="end_zone" x="3156" y="116" width="8" height="92"/>
+  <object name="player" gid="16" x="28" y="200"/>
+ </objectgroup>
+</map>

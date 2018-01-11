@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="18" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="time_limit" value="30"/>
+ </properties>
+ <tileset firstgid="1" name="tilemap_1" tilewidth="16" tileheight="16">
+  <image source="../tilemap_1.png" width="256" height="256"/>
+ </tileset>
+ <layer name="decoration" width="100" height="18">
+  <data encoding="base64" compression="zlib">
+   eJzt0TENADAMBLFQLZRCKOPOARB9BhvBSVcFAAAw76QDaG46gMaPXV46AAAAhn2lhwH1
+  </data>
+ </layer>
+ <layer name="spikes" width="100" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAvBhwgAAE=
+  </data>
+ </layer>
+ <layer name="bounce" width="100" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAvBhwgAAE=
+  </data>
+ </layer>
+ <layer name="map" width="100" height="18">
+  <properties>
+   <property name="map" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1MEJADAIA0Ddf+kO4MOXVOQOsoAhRgAAwD3ZhD/cfhd97OJfQWUHAAAzHiC/ABM=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="player" gid="16" x="24" y="152"/>
+  <object name="powerup_help" type="text" x="132" y="124" width="68" height="40">
+   <properties>
+    <property name="value" value="Use this POWERUP to FLIP continuously"/>
+   </properties>
+  </object>
+  <object type="powerup_flip" gid="67" x="56" y="152"/>
+  <object type="powerup_flip" gid="67" x="664" y="152"/>
+  <object type="powerup_flip" gid="67" x="1184" y="152"/>
+  <object name="end_zone" x="1593" y="112" width="4" height="64"/>
+ </objectgroup>
+</map>
