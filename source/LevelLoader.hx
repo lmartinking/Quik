@@ -1,12 +1,16 @@
 package ;
 
 import flixel.FlxSprite;
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup;
 
 import flixel.tile.FlxTilemap;
-import flixel.addons.editors.tiled.TiledMap;
-import flixel.addons.editors.tiled.TiledLayer;
+import flixel.tile.FlxBaseTilemap;
+
 import flixel.addons.editors.tiled.TiledTile;
+import flixel.addons.editors.tiled.TiledMap;
+import flixel.addons.editors.tiled.TiledObjectLayer;
+import flixel.addons.editors.tiled.TiledTileLayer;
+
 
 class LevelLoader
 {
@@ -21,34 +25,42 @@ class LevelLoader
 
 		for (layer in m.layers)
 		{
-			switch (layer.name)
+			if (Std.is(layer, TiledTileLayer))
 			{
-				case "map", "bounce", "decoration", "overlay":
-					var autoTile = layer.name == "map" ? FlxTilemap.AUTO : FlxTilemap.OFF;
-					var map = new FlxTilemap();
-					map.widthInTiles = layer.width;
-					map.heightInTiles = layer.height;
-					map.loadMap(layer.tileArray, tileMapPath, m.tileWidth, m.tileHeight, autoTile, 1, 1, 1);
-					delegate.handleLoadLayer(map, layer.name);
+				// Tile layers
+				var tileLayer:TiledTileLayer = cast layer;
 
-				case "spikes":
-					var spikeGroup = spriteGroupFromLayer(layer, spikeSpritePath);
-					delegate.handleLoadSpriteGroup(spikeGroup, layer.name);
+				switch (tileLayer.name)
+				{
+					case "map", "bounce", "decoration", "overlay":
+						var autoTile = tileLayer.name == "map" ? FlxTilemapAutoTiling.AUTO : FlxTilemapAutoTiling.OFF;
+						var map = new FlxTilemap();
+						map.loadMapFromArray(tileLayer.tileArray,
+						tileLayer.width, tileLayer.height,
+						tileMapPath, m.tileWidth, m.tileHeight, autoTile, 1, 1, 1);
+						delegate.handleLoadLayer(map, tileLayer.name);
+
+					case "spikes":
+						var spikeGroup = spriteGroupFromLayer(tileLayer, spikeSpritePath);
+						delegate.handleLoadSpriteGroup(spikeGroup, tileLayer.name);
+				}
 			}
-		}
-
-		for (objGroup in m.objectGroups)
-		{
-			for (obj in objGroup.objects)
+			else if (Std.is(layer, TiledObjectLayer))
 			{
-				var x:Int = obj.x;
-				var y:Int = obj.y;
+				// Object layers
+				var objLayer:TiledObjectLayer = cast layer;
 
-				// objects in tiled are aligned bottom-left (top-left in flixel)
-				if (obj.gid != -1)
-					y -= objGroup.map.getGidOwner(obj.gid).tileHeight;
+				for (obj in objLayer.objects)
+				{
+					var x:Int = obj.x;
+					var y:Int = obj.y;
 
-				delegate.handleLoadObject(obj, x, y, objGroup);
+					// objects in tiled are aligned bottom-left (top-left in flixel)
+					if (obj.gid != -1)
+						y -= objLayer.map.getGidOwner(obj.gid).tileHeight;
+
+					delegate.handleLoadObject(obj, x, y, objLayer.objects);
+				}
 			}
 		}
 	}
@@ -83,7 +95,7 @@ class LevelLoader
 		sprite.angle = angle;
 	}
 
-	static private function spriteGroupFromLayer(layer:TiledLayer, image:Dynamic):FlxTypedGroup<FlxSprite>
+	static private function spriteGroupFromLayer(layer:TiledTileLayer, image:Dynamic):FlxTypedGroup<FlxSprite>
 	{
 		var group = new FlxTypedGroup<FlxSprite>();
 

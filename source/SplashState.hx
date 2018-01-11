@@ -43,7 +43,8 @@ class SplashState extends FlxState
 			Game.instance().preloadMusic();
 		});
 
-		timer = new FlxTimer(4.0, function(timer:FlxTimer) { leaveState(); }, 1);
+		timer = new FlxTimer();
+		timer.start(4.0, function(timer:FlxTimer) { leaveState(); }, 1);
 	}
 
 	override public function destroy():Void
@@ -54,9 +55,9 @@ class SplashState extends FlxState
 		timer = FlxDestroyUtil.destroy(timer);
 	}
 
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 
 		if (Input.skipPressed())
 		{

@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxPoint;
 import flixel.FlxG;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
@@ -12,25 +13,28 @@ import flixel.system.FlxSound;
 import flixel.system.FlxQuadTree;
 
 import flixel.group.FlxGroup;
-import flixel.group.FlxTypedGroup;
+//import flixel.group.FlxTypedGroup;
 
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxPath;
-import flixel.util.FlxPoint;
 import flixel.util.FlxDestroyUtil;
+
+import flixel.math.FlxPoint;
 
 import flixel.tweens.FlxTween;
 import flixel.effects.FlxFlicker;
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.display.FlxBackdrop;
-import flixel.addons.effects.FlxGlitchSprite;
-import flixel.effects.particles.FlxEmitterExt;
+import flixel.addons.effects.chainable.IFlxEffect;
+import flixel.addons.effects.chainable.FlxEffectSprite;
+import flixel.addons.effects.chainable.FlxGlitchEffect;
+import flixel.effects.particles.FlxEmitter;
 
 import flixel.tile.FlxTilemap;
+import flixel.tile.FlxBaseTilemap;
 import flixel.addons.tile.FlxTilemapExt;
 import flixel.addons.editors.tiled.TiledObject;
-import flixel.addons.editors.tiled.TiledObjectGroup;
 import flixel.addons.editors.tiled.TiledPropertySet;
 
 import Input;
@@ -52,7 +56,7 @@ class PlayState extends FlxState
 	private var platformGroup:FlxTypedGroup<Platform>;
 	private var collidableGroup:FlxGroup;
 	private var endArea:FlxObject;
-	private var explosion:FlxEmitterExt;
+	private var explosion:FlxEmitter;
 
 	private var player:FlxSprite;
 	private var playerTrail:FlxTrail;
@@ -112,10 +116,10 @@ class PlayState extends FlxState
 
 		// Load Sprites
 		player = new FlxSprite(0, 0);
-		player.loadGraphic("assets/images/player.png", false, 16, 16);
+		player.loadGraphic("assets/images/player.png", true, 16, 16);
 		player.animation.add("jump", [0], 1, true);
 		player.animation.add("stop", [0], 1, true);
-		player.animation.add("walk", [0, 1, 0, 2], 5, true);
+		player.animation.add("walk", [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 2, 2, 2, 2], 1, true);
 
 		player.animation.play("walk");
 
@@ -155,7 +159,7 @@ class PlayState extends FlxState
 		LevelLoader.loadMap(levelMap, this);
 
 		// Camera Setup
-		FlxG.camera.follow(player, FlxCamera.STYLE_TOPDOWN_TIGHT, 5);
+		FlxG.camera.follow(player, FlxCameraFollowStyle.TOPDOWN_TIGHT, 5);
 		FlxG.camera.followLead.set(10, 5);
 
 		// HUD Setup
@@ -180,14 +184,7 @@ class PlayState extends FlxState
 		if (decorationMap != null)
 			add(decorationMap);
 
-		explosion = new FlxEmitterExt();
-		explosion.setColor(FlxColor.WHITE, FlxColor.WHITE);
-		explosion.bounce = 0.35;
-		explosion.setSize(2, 2);
-		explosion.setRotation(0, 0);
-		explosion.setMotion(0, 5, 0.2, 360, 200, 1.8);
-		explosion.gravity = 100;
-		explosion.makeParticles("assets/images/spike_gibs.png", 100, 0, true);
+		explosion = createExplosion();
 
 		collidableGroup.add(explosion);
 		collidableGroup.add(player);
@@ -230,6 +227,22 @@ class PlayState extends FlxState
 			Reg.resumed = false;
 			showPauseMenu();
 		}
+	}
+
+	private function createExplosion():FlxEmitter
+	{
+		explosion = new FlxEmitter();
+		explosion.color.set(FlxColor.WHITE, FlxColor.WHITE);
+		explosion.elasticity.start.set(0.35, 0.35);
+		explosion.elasticity.end.set(0.35, 0.35);
+		explosion.setSize(2, 2);
+		explosion.angle.set(0, 360, 0, 360);
+		explosion.lifespan.set(0.2, 0.2 + 1.8);
+		explosion.solid = true;
+		explosion.acceleration.start.set(new FlxPoint(0.0, 100.0));
+		explosion.acceleration.end.set(new FlxPoint(0.0, 100.0));
+		explosion.loadParticles("assets/images/spike_gibs.png", 100, 0, true);
+		return explosion;
 	}
 
 	override public function destroy():Void
@@ -339,8 +352,8 @@ class PlayState extends FlxState
 			if (obj1.alive)
 			{
 				obj1.kill();
-				explosion.at(obj1);
-				explosion.start(true, 3, 0, 10);
+				explosion.focusOn(obj1);
+				explosion.start(true, 3, 10);
 				stats.spikesSmashed++;
 				sndExplode.play(true);
 			}
@@ -361,15 +374,7 @@ class PlayState extends FlxState
 
 	private function onPlatformHit(obj1:FlxObject, obj2:FlxObject)
 	{
-		if (! player.alive)
-			return;
-
-		var p = cast(obj1, Platform);
-
-		if (p.type == PlatformType.Normal)
-		{
-
-		}
+		// TODO: Not yet implemented
 	}
 
 	private static function pixelPerfectProcess(obj1:FlxBasic, obj2:FlxBasic):Bool
@@ -384,7 +389,7 @@ class PlayState extends FlxState
 		return false;
 	}
 
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
 		Input.update();
 
@@ -418,7 +423,7 @@ class PlayState extends FlxState
 			}
 		}
 
-		super.update();
+		super.update(elapsed);
 
 		// Collissions
 		if (wallMap != null)
@@ -601,11 +606,11 @@ class PlayState extends FlxState
 			case "overlay":
 				// Convert to a FlxTilemapExt since we need alpha support
 				overlayMap = new FlxTilemapExt();
-				overlayMap.widthInTiles = obj.widthInTiles;
-				overlayMap.heightInTiles = obj.heightInTiles;
 				var tileWidth = Math.floor(obj.width / obj.widthInTiles);
 				var tileHeight = Math.floor(obj.height / obj.heightInTiles);
-				overlayMap.loadMap(obj.getData(), LevelLoader.tileMapPath, tileWidth, tileHeight, FlxTilemap.OFF, 1);
+				overlayMap.loadMapFromArray(obj.getData(),
+				                            obj.widthInTiles, obj.heightInTiles,
+				                            LevelLoader.tileMapPath, tileWidth, tileHeight, FlxTilemapAutoTiling.OFF, 1);
 		}
 	}
 
@@ -618,7 +623,7 @@ class PlayState extends FlxState
 		}
 	}
 
-	public function handleLoadObject(obj:TiledObject, x:Int, y:Int, group:TiledObjectGroup)
+	public function handleLoadObject(obj:TiledObject, x:Int, y:Int, group:Array<TiledObject>)
 	{
 		switch (obj.name)
 		{
@@ -641,19 +646,19 @@ class PlayState extends FlxState
 					objectGroup.add(text);
 
 			case "powerup_flip":
-				powerupGroup.add(new Powerup(x, y, Flip));
+				powerupGroup.add(new Powerup(x, y, PowerupType.Flip));
 
 			case "powerup_bounce":
-				powerupGroup.add(new Powerup(x, y, Bounce));
+				powerupGroup.add(new Powerup(x, y, PowerupType.Bounce));
 
 			case "powerup_smash":
-				powerupGroup.add(new Powerup(x, y, Smash));
+				powerupGroup.add(new Powerup(x, y, PowerupType.Smash));
 
 			case "powerup_save":
-				powerupGroup.add(new Powerup(x, y, SavePoint));
+				powerupGroup.add(new Powerup(x, y, PowerupType.SavePoint));
 
 			case "powerup_stop":
-				powerupGroup.add(new Powerup(x, y, Stop));
+				powerupGroup.add(new Powerup(x, y, PowerupType.Stop));
 
 			case "platform_normal":
 				var platform = createPlatformFromObject(obj, x, y);
@@ -677,8 +682,8 @@ class PlayState extends FlxState
 		if (obj.objectType == TiledObject.POLYLINE || obj.objectType == TiledObject.POLYGON)
 		{
 			var size = 2;
-			if (obj.custom.contains("size"))
-				size = Std.parseInt(obj.custom.get("size"));
+			if (obj.properties.contains("size"))
+				size = Std.parseInt(obj.properties.get("size"));
 
 			var typ = switch (obj.type)
 			{
@@ -687,8 +692,8 @@ class PlayState extends FlxState
 
 			platform = new Platform(x, y, typ, size);
 
-			if (obj.custom.contains("speed"))
-				platform.speed = Std.parseInt(obj.custom.get("speed"));
+			if (obj.properties.contains("speed"))
+				platform.speed = Std.parseInt(obj.properties.get("speed"));
 
 			platform.setPath(obj.points);
 		}
@@ -702,10 +707,10 @@ class PlayState extends FlxState
 
 	private function createTextFromObject(obj:TiledObject):FlxText
 	{
-		if (obj.custom.contains("value") == false)
+		if (obj.properties.contains("value") == false)
 			return null;
 
-		var txt = GameText.apply(obj.custom.get("value"));
+		var txt = GameText.apply(obj.properties.get("value"));
 
 		var t = new FlxText(obj.x, obj.y, obj.width, txt);
 		t.alignment = "center";
@@ -794,7 +799,9 @@ class PlayState extends FlxState
 		player.alive = false;
 		player.velocity.set(0, 0);
 
-		var effect = new FlxGlitchSprite(player);
+		var effects:Array<IFlxEffect> = [ new FlxGlitchEffect() ];
+		var effect = new FlxEffectSprite(player, effects);
+		effect.setPosition(player.x, player.y);
 		remove(player);
 		add(effect);
 
@@ -927,7 +934,7 @@ class Platform extends FlxSprite
 
 	public var speed:Int;
 
-	private var path:FlxPath;
+	private var move_path:FlxPath;
 
 	public function setPath(points:Array<FlxPoint>)
 	{
@@ -944,8 +951,8 @@ class Platform extends FlxSprite
 			this.y = points[0].y;
 		}
 
-		path.start(this, newPath, speed, FlxPath.YOYO);
-		path.setNode(0);
+		move_path.start(newPath, speed, FlxPath.YOYO);
+		move_path.setNode(0);
 
 		this.immovable = true;
 	}
@@ -955,7 +962,8 @@ class Platform extends FlxSprite
 		type = Type;
 		speed = 50;
 
-		this.path = new FlxPath();
+		this.move_path = new FlxPath();
+		this.path = move_path;
 
 		var assetPath = switch (size)
 		{
@@ -973,7 +981,7 @@ class Platform extends FlxSprite
 
 	override public function destroy():Void
 	{
-		path = FlxDestroyUtil.destroy(path);
+		move_path = FlxDestroyUtil.destroy(move_path);
 		super.destroy();
 	}
 }

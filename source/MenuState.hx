@@ -51,7 +51,7 @@ class MenuState extends FlxState
 
 		var title = new FlxText(0, 0, 0, "Quik", 32);
 		title.alignment = "center";
-		title.borderStyle = FlxText.BORDER_SHADOW;
+		title.borderStyle = FlxTextBorderStyle.SHADOW;
 		title.borderSize = 4;
 		title.bold = true;
 
@@ -85,7 +85,7 @@ class MenuState extends FlxState
 		buttonGroup.screenCenter();
 		buttonGroup.y += 30;
 
-		title.screenCenter(true, true);
+		title.screenCenter();
 		title.y -= 60;
 		title.x -= 2;
 
@@ -107,7 +107,7 @@ class MenuState extends FlxState
 		var buildNote = new FlxText();
 		buildNote.size = 8;
 		buildNote.alignment = "right";
-		buildNote.borderStyle = FlxText.BORDER_SHADOW;
+		buildNote.borderStyle = FlxTextBorderStyle.SHADOW;
 		buildNote.borderSize = 1.0;
 		buildNote.text = "Version " + MacroStuff.get_version();
 	#if (! release && ! demo)
@@ -130,9 +130,9 @@ class MenuState extends FlxState
 		super.destroy();
 	}
 
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 
 	#if (! mobile)
 		if (Input.escapePressed())

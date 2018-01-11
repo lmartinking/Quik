@@ -58,7 +58,7 @@ class Obfuscate
 	// import random
 	// [ hex(random.randint(0, 255)) for n in range(8) ]
 	//
-	private static var PATTERN = ['0xe', '0x8d', '0x83', '0xf2', '0x43', '0x60', '0x6f', '0x27'];
+	private static var PATTERN = [ 0x6b, 0x87, 0x52, 0xf5, 0x17, 0xb6, 0x62, 0x7f ];
 
 	public static function deobfuscateStr(str:String):String
 	{

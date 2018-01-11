@@ -3,7 +3,9 @@ package ;
 
 import flixel.FlxG;
 import flixel.FlxSubState;
+import flixel.util.FlxColor;
 import flixel.text.FlxText;
+import flixel.util.FlxAxes;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import flixel.addons.display.FlxBackdrop;
 
@@ -44,21 +46,21 @@ class EnterNameState extends FlxSubState {
 			characters.push(0);
 		}
 
-		var title = new FlxText(0, 0, "NEW HIGH SCORE!");
+		var title = new FlxText(0, 0, 0, "NEW HIGH SCORE!");
 		title.centerOffsets();
 		title.scale.set(2.0, 2.0);
-		title.borderStyle = FlxText.BORDER_SHADOW;
-		title.screenCenter(true, false);
+		title.borderStyle = FlxTextBorderStyle.SHADOW;
+		title.screenCenter(FlxAxes.X);
 		title.y = 30;
 
 		var pointsTxt = null;
 		if (points > 0)
 		{
-			pointsTxt = new FlxText(0, 0, '${NumberFormat.groupDigits(points, ",")} POINTS');
+			pointsTxt = new FlxText(0, 0, 0, '${NumberFormat.groupDigits(points, ",")} POINTS');
 			pointsTxt.centerOffsets();
-			pointsTxt.borderStyle = FlxText.BORDER_SHADOW;
+			pointsTxt.borderStyle = FlxTextBorderStyle.SHADOW;
 			pointsTxt.scale.set(1.5, 1.5);
-			pointsTxt.screenCenter(true, false);
+			pointsTxt.screenCenter(FlxAxes.X);
 			pointsTxt.y = title.y + title.height + 15;
 		}
 
@@ -71,7 +73,7 @@ class EnterNameState extends FlxSubState {
 
 		btnDown.y = yPos;
 		btnDown.centerOffsets();
-		btnDown.screenCenter(true, false);
+		btnDown.screenCenter(FlxAxes.X);
 
 		btnUp.centerOffsets();
 		btnUp.x = btnDown.x - btnUp.width - 10;
@@ -169,18 +171,14 @@ class EnterNameState extends FlxSubState {
 
 			if (idx == position)
 			{
-				txt.borderStyle = FlxText.BORDER_OUTLINE;
+				txt.borderStyle = FlxTextBorderStyle.OUTLINE;
+				txt.borderColor = FlxColor.BLACK;
 			}
 			else
 			{
-				txt.borderStyle = FlxText.BORDER_NONE;
+				txt.borderStyle = FlxTextBorderStyle.NONE;
 			}
 		}
-	}
-
-	public override function update():Void
-	{
-		super.update();
 	}
 
 	public override function destroy():Void

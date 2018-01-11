@@ -17,7 +17,7 @@ class SpinnerText extends FlxText {
 	{
 		showZero = val;
 		lastValue = -1;
-		update();
+		update(0.0);
 	}
 
 	public override function new(X:Float = 0, Y:Float = 0, FieldWidth:Float = 0, ?Text:String, Size:Int = 8, EmbeddedFont:Bool = true)
@@ -32,7 +32,7 @@ class SpinnerText extends FlxText {
 		super(X, Y, FieldWidth, Text, Size, EmbeddedFont);
 	}
 
-	public override function update()
+	public override function update(elapsed:Float)
 	{
 		if (lastValue != value)
 		{
@@ -45,7 +45,7 @@ class SpinnerText extends FlxText {
 			lastValue = value;
 		}
 
-		super.update();
+		super.update(elapsed);
 	}
 
 	public override function destroy()
@@ -70,7 +70,7 @@ class SpinnerText extends FlxText {
 		}
 
 		tweening = true;
-		FlxTween.tween(this, { value: amount }, tweenTime, { complete: tweenComplete });
+		FlxTween.tween(this, { value: amount }, tweenTime, { onComplete: tweenComplete });
 	}
 
 	private function tweenComplete(tween:FlxTween)
@@ -82,6 +82,6 @@ class SpinnerText extends FlxText {
 		}
 
 		var nextValue = valuesToSet.pop();
-		FlxTween.tween(this, { value: nextValue }, tweenTime, { complete: tweenComplete });
+		FlxTween.tween(this, { value: nextValue }, tweenTime, { onComplete: tweenComplete });
 	}
 }

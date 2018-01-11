@@ -66,8 +66,9 @@ class PlayStateHUD extends FlxSpriteGroup {
 		// TODO: Better fonts
 		scoreText = new SpinnerText((FlxG.width / 4) * 3, MARGIN_TOP, 100, "", FONT_SIZE);
 		scoreText.alignment = "right";
-		scoreText.borderStyle = FlxText.BORDER_OUTLINE;
+		scoreText.borderStyle = FlxTextBorderStyle.OUTLINE;
 		scoreText.borderSize = 1.0;
+		scoreText.borderColor = FlxColor.BLACK;
 		scoreText.antialiasing = false;
 		scoreText.centerOrigin();
 		scoreText.scale.set(1.8, 1.8);
@@ -81,8 +82,9 @@ class PlayStateHUD extends FlxSpriteGroup {
 
 		flipText = new SpinnerText(barBg.x + barBg.width + MARGIN_SIDE, MARGIN_TOP, 100, "", FONT_SIZE);
 		flipText.alignment = "left";
-		flipText.borderStyle = FlxText.BORDER_OUTLINE;
+		flipText.borderStyle = FlxTextBorderStyle.OUTLINE;
 		flipText.borderSize = 1.0;
+		flipText.borderColor = FlxColor.BLACK;
 		flipText.antialiasing = false;
 		flipText.centerOrigin();
 		flipText.x += 30;
@@ -95,8 +97,9 @@ class PlayStateHUD extends FlxSpriteGroup {
 
 		timeText = new FlxText((FlxG.width / 4) * 3, MARGIN_TOP, 100, "0", FONT_SIZE);
 		timeText.alignment = "right";
-		timeText.borderStyle = FlxText.BORDER_OUTLINE;
+		timeText.borderStyle = FlxTextBorderStyle.OUTLINE;
 		timeText.borderSize = 1.0;
+		timeText.borderColor = FlxColor.BLACK;
 		timeText.antialiasing = false;
 		timeText.width = 100;
 		timeText.x = FlxG.width - MARGIN_SIDE - timeText.width;
@@ -165,7 +168,7 @@ class PlayStateHUD extends FlxSpriteGroup {
 
 			if (seconds == 10)
 			{
-				timeTextTween = FlxTween.color(timeText, 0.25, timeText.color, timeText.color, 1.0, 0.0, { type: FlxTween.PINGPONG });
+				timeTextTween = FlxTween.color(timeText, 0.25, timeText.color, timeText.color, { startDelay:1.0, loopDelay: 0.0, type: FlxTween.PINGPONG });
 			}
 			else if (seconds == 5)
 			{

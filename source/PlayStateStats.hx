@@ -6,6 +6,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxSignal;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxTimer;
+import flixel.util.FlxAxes;
 import flixel.FlxState;
 
 import flixel.FlxG;
@@ -48,8 +49,8 @@ class PlayStateStats extends FlxState {
 		var title = new FlxText(0, 0, 0, 'Completed Level ${s.levelIndex + 1} of ${Reg.levels.length}');
 		title.centerOffsets();
 		title.scale.set(2.0, 2.0);
-		title.borderStyle = FlxText.BORDER_SHADOW;
-		title.screenCenter(true, false);
+		title.borderStyle = FlxTextBorderStyle.SHADOW;
+		title.screenCenter(FlxAxes.X);
 		title.y = 12;
 		add(title);
 
@@ -133,7 +134,7 @@ class SpinnerValue
 
 	public function new(label:String, val:Int, xOff = 0, yOff = 0)
 	{
-		lbl = new FlxText(0, 0, label);
+		lbl = new FlxText(0, 0, 0, label);
 		text = new SpinnerText();
 		text.showZero = false;
 		text.setTo(0);

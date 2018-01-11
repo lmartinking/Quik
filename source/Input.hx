@@ -1,7 +1,7 @@
 package;
 
 import flixel.FlxG;
-import flixel.util.FlxRect;
+import flixel.math.FlxRect;
 
 class Input {
 	private static var ignoreRegion:FlxRect = new FlxRect();
@@ -76,7 +76,7 @@ class Input {
 
 	public static function skipPressed():Bool
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		return FlxG.keys.justPressed.SPACE || FlxG.mouse.pressed;
 		#end
 
@@ -87,7 +87,7 @@ class Input {
 
 	public static function flipPressed():Bool
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		return FlxG.keys.justPressed.SPACE;
 		#end
 
@@ -98,7 +98,7 @@ class Input {
 
 	public static function bouncePressed():Bool
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		return FlxG.keys.justPressed.CONTROL;
 		#end
 
@@ -114,7 +114,7 @@ class Input {
 
 	public static function stopHeld():Bool
 	{
-		#if desktop
+		#if (desktop || flash || html5)
 		return FlxG.keys.pressed.SHIFT;
 		#end
 
@@ -123,7 +123,7 @@ class Input {
 
 	public static function escapePressed():Bool
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		return FlxG.keys.justPressed.ESCAPE;
 		#end
 

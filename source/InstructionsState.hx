@@ -58,9 +58,9 @@ class InstructionsState extends FlxSubState {
 		add(tap);
 	}
 
-	public override function update()
+	public override function update(elapsed:Float)
 	{
-		super.update();
+		super.update(elapsed);
 
 		if (Input.skipPressed())
 		{

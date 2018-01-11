@@ -20,7 +20,8 @@ class Button extends FlxButton
 
 		loadGraphic("assets/ui/button_green.png", true, 80, 20);
 		label.color = FlxColor.WHITE;
-		label.borderStyle = FlxText.BORDER_OUTLINE;
+		label.borderStyle = FlxTextBorderStyle.OUTLINE;
+		label.borderColor = FlxColor.BLACK;
 		label.borderSize = 1.0;
 		labelAlphas = [1.0, 0.9, 0.5];
 		label.antialiasing = false;

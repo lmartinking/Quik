@@ -74,9 +74,4 @@ class PlayStateMenu extends FlxSubState
 	{
 		super.destroy();
 	}
-
-	override public function update():Void
-	{
-		super.update();
-	}
 }

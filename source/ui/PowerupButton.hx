@@ -1,12 +1,12 @@
 package ui;
 
-import flixel.ui.FlxTypedButton;
+import flixel.addons.ui.FlxUITypedButton;
 import flixel.FlxSprite;
 
 import PlayState.PowerupType;
 import PlayState.Powerup;
 
-class PowerupButton extends FlxTypedButton<FlxSprite>
+class PowerupButton extends FlxUITypedButton<FlxSprite>
 {
 	private var type:PowerupType;
 

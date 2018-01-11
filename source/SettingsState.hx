@@ -75,7 +75,6 @@ class SettingsState extends FlxSubState {
 		yPos += 10;
 		var globalScores = new CheckBox(10, yPos, "");
 		globalScores.text = "Fetch and submit global high scores";
-		globalScores.textY = -8;
 		globalScores.checked = Game.instance().globalScoresEnabled;
 		globalScores.callback = function () {
 			var enabled = globalScores.checked;

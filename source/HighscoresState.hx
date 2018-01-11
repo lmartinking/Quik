@@ -56,8 +56,8 @@ class HighscoresState extends FlxState {
 
 		for (index in 0...10)
 		{
-			var idxTxt = new FlxText(xPosIndex, yPos, Std.string(index + 1));
-			var nameTxt = new FlxText(xPosName, yPos, "");
+			var idxTxt = new FlxText(xPosIndex, yPos, 0, Std.string(index + 1));
+			var nameTxt = new FlxText(xPosName, yPos, 0, "");
 
 			var scoreTxt = new FlxText(xPosScore, yPos, 100, "");
 			scoreTxt.alignment = "right";
@@ -80,8 +80,8 @@ class HighscoresState extends FlxState {
 		#if demo
 		var demoTxt = new FlxText(0, 0, 300, "This is the DEMO version of Quik.\nIn the full version, high scores\ncan be posted online.");
 		demoTxt.alignment = "center";
-		demoTxt.screenCenter(true, true);
-		demoTxt.borderStyle = FlxText.BORDER_SHADOW;
+		demoTxt.screenCenter();
+		demoTxt.borderStyle = FlxTextBorderStyle.SHADOW;
 		add(demoTxt);
 		#end
 

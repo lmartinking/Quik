@@ -20,7 +20,7 @@
 	<!-- WINDOW SETTINGS -->
 	
 	<!--These window settings apply to all targets-->
-	<window width="960" height="540" fps="60" background="#000000" hardware="true" vsync="true" />
+	<window width="960" height="540" fps="30" background="#000000" hardware="true" vsync="true" />
 	
 	<!--Web-specific-->
 	<window if="web" orientation="landscape" />
