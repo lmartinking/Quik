@@ -45,7 +45,17 @@ released binaries:
 
 ## Code Tour
 
-Most of the guts are in `source/Game.hx`, which is the main "game state".
+NOTE: It helps to first know the basic structure of a HaxeFlixel game.
+If unsure, have a look at the HaxeFlixel tutorials and demos first.
+
+The entry point is `source/Main.hx`, but as you can see it pretty much brings up...
+
+...the code in `source/Game.hx`, which is mostly glue around play states, saving, scores, etc.
+
+Most of the gameplay guts are in `source/PlayState.hx`, which is the main "game state".
+
+Loading levels (created using _Tiled_) is handled via `source/LevelLoader.hx` which delegates
+things back to `PlayState`.
 
 Customised UI widgets are in `source/ui/`.
 
