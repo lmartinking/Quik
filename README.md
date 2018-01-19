@@ -5,7 +5,8 @@ Quik
 
 The source and assets for [Quik: Gravity Flip Platformer](https://irrationalidiom.com/quik).
 
-**This is the develop branch, updated to use Flixel 4**
+**This is the develop branch, updated to use Flixel 4.**
+**Due to changes in Flixel, the camera is a bit wonky compared to Flixel 3**
 
 It is inspired by two games I love: _Cannabalt_ and _VVVVVV_.
 
@@ -29,7 +30,18 @@ learning to make their own games.
 
 You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 
-Then:
+### Known Working Versions of Dependencies
+
+ * Haxe 3.4.4
+ * HxCPP 3.4.188
+ * Flixel 4.3.0
+ * Lime 2.9.1
+ * OpenFL 3.6.1
+ * polygonal-core 1.0.4
+ * polygonal-ds 1.4.1
+ * polygonal-printf 1.0.2-beta
+
+### Then
 
 ```
     lime -Drelease build mac -64
