@@ -2,6 +2,7 @@ package ;
 
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxTween.FlxTweenType;
 import de.polygonal.core.fmt.NumberFormat;
 import flixel.addons.display.FlxBackdrop;
 import flixel.text.FlxText;
@@ -127,7 +128,7 @@ class HighscoresState extends FlxState {
 					for (obj in [name, score])
 					{
 						obj.alpha = 0.0;
-						var tw = FlxTween.tween(obj, { alpha: 1.0 }, 1.0, { type: FlxTween.LOOPING });
+						var tw = FlxTween.tween(obj, { alpha: 1.0 }, 1.0, { type: FlxTweenType.LOOPING });
 						tweens.push(tw);
 					}
 				}

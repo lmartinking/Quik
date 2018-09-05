@@ -7,6 +7,7 @@ import openfl.geom.Point;
 import openfl.geom.Rectangle;
 
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxTween.FlxTweenType;
 import flixel.util.FlxColor;
 
 import flixel.text.FlxText;
@@ -168,7 +169,7 @@ class PlayStateHUD extends FlxSpriteGroup {
 
 			if (seconds == 10)
 			{
-				timeTextTween = FlxTween.color(timeText, 0.25, timeText.color, timeText.color, { startDelay:1.0, loopDelay: 0.0, type: FlxTween.PINGPONG });
+				timeTextTween = FlxTween.color(timeText, 0.25, timeText.color, timeText.color, { startDelay:1.0, loopDelay: 0.0, type: FlxTweenType.PINGPONG });
 			}
 			else if (seconds == 5)
 			{
