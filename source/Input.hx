@@ -47,7 +47,7 @@ class Input {
 		{
 			if (touch.justPressed)
 			{
-				if (useIgnoreRegion && ignoreRegion.containsFlxPoint(touch))
+				if (useIgnoreRegion && ignoreRegion.containsPoint(touch.justPressedPosition))
 				{
 					continue;
 				}
