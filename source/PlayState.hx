@@ -934,8 +934,6 @@ class Platform extends FlxSprite
 
 	public var speed:Int;
 
-	private var move_path:FlxPath;
-
 	public function setPath(points:Array<FlxPoint>)
 	{
 		var newPath = new Array<FlxPoint>();
@@ -951,8 +949,10 @@ class Platform extends FlxSprite
 			this.y = points[0].y;
 		}
 
-		move_path.start(newPath, speed, FlxPath.YOYO);
-		move_path.setNode(0);
+		this.path = FlxDestroyUtil.destroy(this.path);
+		this.path = new FlxPath();
+		this.path.start(newPath, speed, FlxPath.YOYO);
+		this.path.setNode(0);
 
 		this.immovable = true;
 	}
@@ -961,9 +961,6 @@ class Platform extends FlxSprite
 	{
 		type = Type;
 		speed = 50;
-
-		this.move_path = new FlxPath();
-		this.path = move_path;
 
 		var assetPath = switch (size)
 		{
@@ -981,7 +978,7 @@ class Platform extends FlxSprite
 
 	override public function destroy():Void
 	{
-		move_path = FlxDestroyUtil.destroy(move_path);
+		this.path = FlxDestroyUtil.destroy(this.path);
 		super.destroy();
 	}
 }
