@@ -47,6 +47,7 @@ class Game extends FlxGame {
 			zoom = Math.min(ratioX, ratioY);
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
+			trace("zoom is now", zoom);
 		}
 
 		#if mobile
@@ -69,7 +70,7 @@ class Game extends FlxGame {
 			Reg.resumed = false;
 		}
 
-		super(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
+		super(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen);
 
 		#if mobile
 		focusLostFramerate = 1;
