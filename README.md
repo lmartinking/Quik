@@ -31,11 +31,11 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 
 ### Known Working Versions of Dependencies
 
- * Haxe 3.4.7
- * HxCPP 4.0.4
- * Flixel 4.5.0
- * Lime 7.0.0
- * OpenFL 8.4.1
+ * Haxe 4.5.2
+ * HxCPP 4.2.1
+ * Flixel 5.0.2
+ * Lime 8.0.0
+ * OpenFL 9.2.0
  * polygonal-core 1.0.4
  * polygonal-ds 1.4.1 (this may require a fix to the code in `de/polygonal/ds/Bits.hx`)
  * polygonal-printf 1.0.2-beta
