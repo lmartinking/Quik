@@ -2,7 +2,7 @@ package ui;
 
 import flixel.FlxG;
 import flixel.ui.FlxButton;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 

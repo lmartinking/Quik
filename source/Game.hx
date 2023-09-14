@@ -4,7 +4,7 @@ import flixel.FlxGame;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.util.FlxSave;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 
 import flash.Lib;
 
@@ -71,13 +71,14 @@ class Game extends FlxGame {
 		}
 
 		super(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen);
+		// FIXME: zoom has been removed from here. Where do we set now?
 
 		#if mobile
 		focusLostFramerate = 1;
 		#end
 
-		FlxG.signals.gameStarted.add(gameSetup);
-		FlxG.signals.stateSwitched.add(onStateSwitch);
+		FlxG.signals.postGameStart.add(gameSetup);
+		FlxG.signals.postStateSwitch.add(onStateSwitch);
 		FlxG.signals.focusLost.add(saveData);
 
 		globalScoresEnabled = true;
