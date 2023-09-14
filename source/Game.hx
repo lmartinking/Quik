@@ -271,7 +271,7 @@ class Game extends FlxGame {
 	private function onStateSwitch():Void
 	{
 		// FUDGE: At this point FlxG.state is the prior state; we have to dig to get our upcoming state
-		var isPlayState = Std.is(_requestedState, PlayState);
+		var isPlayState = Std.isOfType(_requestedState, PlayState);
 
 		Input.setMouseVisible(! isPlayState);
 	}

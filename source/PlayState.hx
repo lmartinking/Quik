@@ -380,7 +380,7 @@ class PlayState extends FlxState
 
 	private static function pixelPerfectProcess(obj1:FlxBasic, obj2:FlxBasic):Bool
 	{
-		if (Std.is(obj1, FlxSprite) && Std.is(obj2, FlxSprite))
+		if (Std.isOfType(obj1, FlxSprite) && Std.isOfType(obj2, FlxSprite))
 		{
 			var spr1:FlxSprite = cast obj1;
 			var spr2:FlxSprite = cast obj2;
