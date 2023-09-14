@@ -161,7 +161,8 @@ class PlayState extends FlxState
 
 		// Camera Setup
 		FlxG.camera.follow(player, FlxCameraFollowStyle.TOPDOWN_TIGHT, 5 / FlxG.updateFramerate);
-		FlxG.camera.followLead.set(-10, -5);
+		FlxG.camera.followLead.x = 40;
+		FlxG.camera.followLead.y = 10;
 
 		// HUD Setup
 		stats = new Reg.LevelStats(Reg.level);
