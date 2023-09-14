@@ -4,7 +4,7 @@ import flixel.FlxGame;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.util.FlxSave;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 
 import flash.Lib;
 
@@ -47,6 +47,7 @@ class Game extends FlxGame {
 			zoom = Math.min(ratioX, ratioY);
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
+			trace("zoom is now", zoom);
 		}
 
 		#if mobile
@@ -69,14 +70,15 @@ class Game extends FlxGame {
 			Reg.resumed = false;
 		}
 
-		super(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
+		super(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen);
+		// FIXME: zoom has been removed from here. Where do we set now?
 
 		#if mobile
 		focusLostFramerate = 1;
 		#end
 
-		FlxG.signals.gameStarted.add(gameSetup);
-		FlxG.signals.stateSwitched.add(onStateSwitch);
+		FlxG.signals.postGameStart.add(gameSetup);
+		FlxG.signals.postStateSwitch.add(onStateSwitch);
 		FlxG.signals.focusLost.add(saveData);
 
 		globalScoresEnabled = true;
@@ -269,7 +271,7 @@ class Game extends FlxGame {
 	private function onStateSwitch():Void
 	{
 		// FUDGE: At this point FlxG.state is the prior state; we have to dig to get our upcoming state
-		var isPlayState = Std.is(_requestedState, PlayState);
+		var isPlayState = Std.isOfType(_requestedState, PlayState);
 
 		Input.setMouseVisible(! isPlayState);
 	}

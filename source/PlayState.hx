@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxDirectionFlags;
 import flixel.math.FlxPoint;
 import flixel.FlxG;
 import flixel.FlxBasic;
@@ -9,7 +10,7 @@ import flixel.FlxCamera;
 import flixel.FlxObject;
 import flixel.FlxSubState;
 
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.system.FlxQuadTree;
 
 import flixel.group.FlxGroup;
@@ -17,7 +18,7 @@ import flixel.group.FlxGroup;
 
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import flixel.util.FlxPath;
+import flixel.path.FlxPath;
 import flixel.util.FlxDestroyUtil;
 
 import flixel.math.FlxPoint;
@@ -132,7 +133,7 @@ class PlayState extends FlxState
 		player.acceleration.x = 100;
 		player.acceleration.y = 500;
 		player.maxVelocity.set(100, 200);
-		player.facing = FlxObject.RIGHT;
+		player.facing = FlxDirectionFlags.RIGHT;
 
 		// Player Variables
 		midJumpCount = 1;
@@ -160,7 +161,8 @@ class PlayState extends FlxState
 
 		// Camera Setup
 		FlxG.camera.follow(player, FlxCameraFollowStyle.TOPDOWN_TIGHT, 5 / FlxG.updateFramerate);
-		FlxG.camera.followLead.set(-10, -5);
+		FlxG.camera.followLead.x = 40;
+		FlxG.camera.followLead.y = 10;
 
 		// HUD Setup
 		stats = new Reg.LevelStats(Reg.level);
@@ -316,15 +318,15 @@ class PlayState extends FlxState
 
 		var maxVel:Float = Math.abs(player.maxVelocity.x);
 
-		if (player.facing == FlxObject.RIGHT)
+		if (player.facing == FlxDirectionFlags.RIGHT)
 		{
 			player.velocity.x = -maxVel;
-			player.facing = FlxObject.LEFT;
+			player.facing = FlxDirectionFlags.LEFT;
 		}
-		else if (player.facing == FlxObject.LEFT)
+		else if (player.facing == FlxDirectionFlags.LEFT)
 		{
 			player.velocity.x = maxVel;
-			player.facing = FlxObject.RIGHT;
+			player.facing = FlxDirectionFlags.RIGHT;
 		}
 
 		player.acceleration.x = -player.acceleration.x;
@@ -379,7 +381,7 @@ class PlayState extends FlxState
 
 	private static function pixelPerfectProcess(obj1:FlxBasic, obj2:FlxBasic):Bool
 	{
-		if (Std.is(obj1, FlxSprite) && Std.is(obj2, FlxSprite))
+		if (Std.isOfType(obj1, FlxSprite) && Std.isOfType(obj2, FlxSprite))
 		{
 			var spr1:FlxSprite = cast obj1;
 			var spr2:FlxSprite = cast obj2;
@@ -462,10 +464,10 @@ class PlayState extends FlxState
 		FlxG.collide(endArea, player, onEndAreaHit);
 
 		// Player Handling
-		player.flipX = (player.facing != FlxObject.RIGHT);
+		player.flipX = (player.facing != FlxDirectionFlags.RIGHT);
 
-		var prevTouchingSurface = (player.wasTouching & (FlxObject.UP | FlxObject.DOWN)) != 0;
-		var nowTouchingSurface:Bool = (player.touching & (FlxObject.UP | FlxObject.DOWN)) != 0;
+		var prevTouchingSurface = (player.wasTouching & (FlxDirectionFlags.UP | FlxDirectionFlags.DOWN)) != 0;
+		var nowTouchingSurface:Bool = (player.touching & (FlxDirectionFlags.UP | FlxDirectionFlags.DOWN)) != 0;
 		var touchingSurface = prevTouchingSurface || nowTouchingSurface;
 
 		if (nowTouchingSurface)
@@ -951,7 +953,7 @@ class Platform extends FlxSprite
 
 		this.path = FlxDestroyUtil.destroy(this.path);
 		this.path = new FlxPath();
-		this.path.start(newPath, speed, FlxPath.YOYO);
+		this.path.start(newPath, speed, FlxPathType.YOYO);
 		this.path.setNode(0);
 
 		this.immovable = true;

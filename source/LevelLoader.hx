@@ -25,7 +25,7 @@ class LevelLoader
 
 		for (layer in m.layers)
 		{
-			if (Std.is(layer, TiledTileLayer))
+			if (Std.isOfType(layer, TiledTileLayer))
 			{
 				// Tile layers
 				var tileLayer:TiledTileLayer = cast layer;
@@ -45,7 +45,7 @@ class LevelLoader
 						delegate.handleLoadSpriteGroup(spikeGroup, tileLayer.name);
 				}
 			}
-			else if (Std.is(layer, TiledObjectLayer))
+			else if (Std.isOfType(layer, TiledObjectLayer))
 			{
 				// Object layers
 				var objLayer:TiledObjectLayer = cast layer;

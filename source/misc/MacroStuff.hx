@@ -21,7 +21,7 @@ class MacroStuff {
 	macro public static function get_version():Expr
 	{
 		var xml = Xml.parse(File.getContent("./" + "Project.xml"));
-		var fast = new haxe.xml.Fast(xml.firstElement());
+		var fast = new haxe.xml.Access(xml.firstElement());
 
 		return Context.makeExpr(fast.node.app.att.version, Context.currentPos());
 	}
