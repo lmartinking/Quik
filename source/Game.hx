@@ -270,7 +270,6 @@ class Game extends FlxGame {
 
 	private function onStateSwitch():Void
 	{
-		// FUDGE: At this point FlxG.state is the prior state; we have to dig to get our upcoming state
 		var isPlayState = Std.isOfType(FlxG.state, PlayState);
 		
 		trace('isPlayState: ${isPlayState}');
