@@ -117,7 +117,7 @@ function mac_publish()
 	rm -Rf export/mac64
 	lime -D${type} build mac -64
 
-	cd export/mac64/cpp/bin
+	cd export/macos/bin
 
 	local bundlename="Quik.app"
 	[[ "$type" == "demo" ]] && bundlename="Quik (Demo).app"
@@ -127,10 +127,12 @@ function mac_publish()
 	local dmgvolname="Quik"
 	[[ "$type" == "demo" ]] && dmgvolname="Quik (Demo)"
 
-	local dmgsize=15
+	local dmgsize=30
 	local dmgtmp=/tmp/quik.tmp.dmg
 	local dmgmnt=/tmp/quik
 	local dmg=/tmp/quik-${type}-${stamp}.dmg
+
+	rm -f ${dmgtmp} ${dmg}
 
 	hdiutil create -ov -megabytes ${dmgsize} -fs HFS+ -nospotlight -volname "${dmgvolname}" ${dmgtmp}
 	mkdir -p ${dmgmnt}

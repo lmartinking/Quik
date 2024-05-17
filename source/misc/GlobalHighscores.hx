@@ -18,8 +18,8 @@ import Reg.HighScore;
 import misc.MacroStuff;
 
 class GlobalHighscores {
-	static var POST_URL="http://127.0.0.1:1988/score/submit";
-	static var TABLE_URL="http://127.0.0.1:1988/scores";
+	static var POST_URL="http://scores.irrationalidiom.com/score/submit";
+	static var TABLE_URL="http://scores.irrationalidiom.com/scores";
 
 	#if demo
 	static var USERAGENT = "Quik/" + MacroStuff.get_version() + "-DEMO";
@@ -90,12 +90,15 @@ class GlobalHighscores {
 		request.method = URLRequestMethod.GET;
 		request.userAgent = USERAGENT;
 
+		trace('requestScores: ${request}');
+
 		var loader = new URLLoader();
 		loader.dataFormat = URLLoaderDataFormat.TEXT;
 
 		var finished = false;
 
 		var abort = function () {
+			trace("requestScores abort");
 			if (finished)
 				return;
 			callbackFn(null);
@@ -103,16 +106,22 @@ class GlobalHighscores {
 		};
 
 		var onComplete = function (e:Event) {
+			trace('requestScores onComplete finished:${finished} ${e}');
 			if (finished)
 				return;
 
+			trace('requestScores onComplete data: ${loader.data}');
+
 			var scores = parseScoresData(loader.data);
+			trace('requestScores onComplete scores: ${scores}');
 			callbackFn(scores);
 
 			finished = true;
 		};
 
 		var onStatus = function (e:HTTPStatusEvent) {
+			trace('requestScores onStatus ${e}');
+
 			if (e.status != 200)
 			{
 				trace("http status", e);
@@ -161,14 +170,17 @@ class GlobalHighscores {
 		var lines:Array<String> = d.split("\n");
 		if (lines.length > MAX_SCORES + 1)
 		{
+			trace("too many scores");
 			return null;
 		}
 
 		var result = new Array<HighScore>();
 
 		var header = lines.shift().split(",");
-		if (header.length != 2 || header[0] != "NAME" || header[1] != "SCORE")
+		if (header.length != 2 || header[0] != "NAME" || header[1] != "SCORE") {
+			trace("invalid header");
 			return null;
+		}
 
 		for (line in lines)
 		{
@@ -176,13 +188,15 @@ class GlobalHighscores {
 
 			if (parts.length != 2 || parts[0].length != NAME_LEN)
 			{
-				return null;
+				trace('ignoring score line: `${line}`');
+				continue;
 			}
 
 			var value = Std.parseInt(parts[1]);
 			if (value == null || value <= 0)
 			{
-				return null;
+				trace('ignoring score line value: `${value}` line: `${line}`');
+				continue;
 			}
 
 			result.push(new HighScore(parts[0], value));

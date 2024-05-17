@@ -21,7 +21,7 @@ class MacroStuff {
 	macro public static function get_version():Expr
 	{
 		var xml = Xml.parse(File.getContent("./" + "Project.xml"));
-		var fast = new haxe.xml.Fast(xml.firstElement());
+		var fast = new haxe.xml.Access(xml.firstElement());
 
 		return Context.makeExpr(fast.node.app.att.version, Context.currentPos());
 	}
@@ -29,10 +29,8 @@ class MacroStuff {
 
 class Obfuscate
 {
-	private static function transform(str:String, xor:Array<Int>):String
+	private static function transformBytes(bytes:Bytes, xor:Array<Int>):Bytes
 	{
-		var bytes = Bytes.ofString(str);
-
 		for (i in 0 ... xor.length)
 		{
 			xor[i] &= 0xff;
@@ -51,7 +49,7 @@ class Obfuscate
 				xorIndex = 0;
 		}
 
-		return bytes.toString();
+		return bytes;
 	}
 
 	// 
@@ -60,14 +58,19 @@ class Obfuscate
 	//
 	private static var PATTERN = [ 0x6b, 0x87, 0x52, 0xf5, 0x17, 0xb6, 0x62, 0x7f ];
 
-	public static function deobfuscateStr(str:String):String
+	public static function deobfuscateStr(input:String):String
 	{
-		return transform(str, PATTERN);
+		// The incoming string is hex encoded by `obfuscateStr`.
+		var bytes = Bytes.ofHex(input);
+		return transformBytes(bytes, PATTERN).toString();
 	}
 
 	macro public static function obfuscateStr(str:String):Expr
 	{
-		var obfuscated = transform(str, PATTERN);
-		return {expr: EConst(CString(obfuscated)) , pos : Context.currentPos()};
+		// NOTE: Haxe now validates the the resultant string when using Bytes.toString()
+		//       so encode as a hex string.
+		var bytes = Bytes.ofHex(str);
+		var obfuscated = transformBytes(bytes, PATTERN).toHex();
+		return Context.makeExpr(obfuscated, Context.currentPos());
 	}
 }

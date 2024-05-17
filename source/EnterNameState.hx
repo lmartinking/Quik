@@ -9,7 +9,7 @@ import flixel.util.FlxAxes;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import flixel.addons.display.FlxBackdrop;
 
-import de.polygonal.core.fmt.NumberFormat;
+import misc.Format;
 
 import ui.Button;
 
@@ -56,7 +56,7 @@ class EnterNameState extends FlxSubState {
 		var pointsTxt = null;
 		if (points > 0)
 		{
-			pointsTxt = new FlxText(0, 0, 0, '${NumberFormat.groupDigits(points, ",")} POINTS');
+			pointsTxt = new FlxText(0, 0, 0, '${Format.groupDigits(points, ",")} POINTS');
 			pointsTxt.centerOffsets();
 			pointsTxt.borderStyle = FlxTextBorderStyle.SHADOW;
 			pointsTxt.scale.set(1.5, 1.5);
