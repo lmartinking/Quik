@@ -3,7 +3,6 @@ package ;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxTween.FlxTweenType;
-import de.polygonal.core.fmt.NumberFormat;
 import flixel.addons.display.FlxBackdrop;
 import flixel.text.FlxText;
 import flixel.FlxG;
@@ -11,6 +10,7 @@ import flixel.FlxState;
 
 import Reg.HighScore;
 import misc.GlobalHighscores;
+import misc.Format;
 
 import ui.Button;
 
@@ -117,7 +117,7 @@ class HighscoresState extends FlxState {
 			else
 			{
 				name.text = list[index].name;
-				score.text = NumberFormat.groupDigits(list[index].points, ",");
+				score.text = Format.groupDigits(list[index].points, ",");
 
 				if ((useLocal && hilightIndex == index) || (! useLocal && latestScore == list[index]))
 				{
