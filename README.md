@@ -33,7 +33,8 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 
  * Haxe 4.3.4
  * HxCPP 4.3.2
- * Flixel 5.3.1
+ * Flixel 5.8.0
+ * Flixel UI 2.6.1
  * Lime 8.1.2
  * OpenFL 9.3.3
 
