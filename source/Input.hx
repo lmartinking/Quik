@@ -62,14 +62,14 @@ class Input {
 
 	public static function setMouseVisible(show:Bool)
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		FlxG.mouse.visible = show;
 		#end
 	}
 
 	public static function setMouseCursor(asset:String)
 	{
-		#if (desktop || flash)
+		#if (desktop || flash || html5)
 		FlxG.mouse.load(asset, 2.0);
 		#end
 	}

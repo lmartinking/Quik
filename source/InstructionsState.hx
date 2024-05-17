@@ -19,7 +19,7 @@ class InstructionsState extends FlxSubState {
 		createTouch();
 		#end
 
-		#if (desktop)
+		#if (desktop || html5)
 		createKeys();
 		#end
 
