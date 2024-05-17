@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 
 from xml.etree import ElementTree as etree
 
@@ -26,5 +26,5 @@ if __name__ == '__main__':
 	if not version:
 		sys.exit(1)
 
-	print version
+	print(version)
 	sys.exit(0)
