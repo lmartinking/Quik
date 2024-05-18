@@ -53,6 +53,8 @@ class PlayStateMenu extends FlxSubState
 		add(resumeBtn);
 		add(restartBtn);
 		add(leaveBtn);
+
+		Input.setMouseVisible(true);
 	}
 
 	private function doResume()

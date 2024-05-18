@@ -870,7 +870,6 @@ class PlayState extends FlxState
 			onLeave();
 		});
 
-		Input.setMouseVisible(true);
 		openSubState(menu);
 	}
 
