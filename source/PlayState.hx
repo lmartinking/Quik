@@ -120,7 +120,7 @@ class PlayState extends FlxState
 		player.loadGraphic("assets/images/player.png", true, 16, 16);
 		player.animation.add("jump", [0], 1, true);
 		player.animation.add("stop", [0], 1, true);
-		player.animation.add("walk", [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 2, 2, 2, 2], 1, true);
+		player.animation.add("walk", [0, 1, 0, 2], 3.0, true);
 
 		player.animation.play("walk");
 
