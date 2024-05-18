@@ -36,6 +36,7 @@ class Game extends FlxGame {
 		var framerate:Int = 60; // How many frames per second the game should run at.
 		var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 		var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+		var devLevelIndex:Int = -1; // For Development purposes: Index of level to jump straight into
 
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
@@ -57,7 +58,14 @@ class Game extends FlxGame {
 		seenInstructions = false;
 
 		attachAutoSave();
-		if (Reg.autoSave.data.active != null && Reg.autoSave.data.active == true)
+		if (devLevelIndex >= 0)
+		{
+			Reg.level = devLevelIndex;
+			Reg.resumed = true; // Pause
+			initialState = PlayState;
+			trace('DEV starting at level: ${Reg.level}');
+		}
+		else if (Reg.autoSave.data.active != null && Reg.autoSave.data.active == true)
 		{
 			Reg.score = Reg.autoSave.data.score;
 			Reg.level = Reg.autoSave.data.level;
