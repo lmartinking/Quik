@@ -1,46 +1,38 @@
 package;
 
-import flixel.util.FlxDirectionFlags;
-import flixel.math.FlxPoint;
-import flixel.FlxG;
+import Input;
+import LevelLoader;
+import PlayStateHUD;
 import flixel.FlxBasic;
+import flixel.FlxCamera;
+import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.FlxCamera;
-import flixel.FlxObject;
 import flixel.FlxSubState;
-
-import flixel.sound.FlxSound;
-import flixel.system.FlxQuadTree;
-
-import flixel.group.FlxGroup;
-//import flixel.group.FlxTypedGroup;
-
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.path.FlxPath;
-import flixel.util.FlxDestroyUtil;
-
-import flixel.math.FlxPoint;
-
-import flixel.tweens.FlxTween;
-import flixel.effects.FlxFlicker;
-import flixel.addons.effects.FlxTrail;
 import flixel.addons.display.FlxBackdrop;
-import flixel.addons.effects.chainable.IFlxEffect;
-import flixel.addons.effects.chainable.FlxEffectSprite;
-import flixel.addons.effects.chainable.FlxGlitchEffect;
-import flixel.effects.particles.FlxEmitter;
-
-import flixel.tile.FlxTilemap;
-import flixel.tile.FlxBaseTilemap;
-import flixel.addons.tile.FlxTilemapExt;
 import flixel.addons.editors.tiled.TiledObject;
 import flixel.addons.editors.tiled.TiledPropertySet;
-
-import Input;
-import PlayStateHUD;
-import LevelLoader;
+import flixel.addons.effects.FlxTrail;
+import flixel.addons.effects.chainable.FlxEffectSprite;
+import flixel.addons.effects.chainable.FlxGlitchEffect;
+import flixel.addons.effects.chainable.IFlxEffect;
+import flixel.addons.tile.FlxTilemapExt;
+import flixel.effects.FlxFlicker;
+import flixel.effects.particles.FlxEmitter;
+import flixel.group.FlxGroup;
+import flixel.math.FlxPoint;
+import flixel.math.FlxPoint;
+import flixel.path.FlxPath;
+import flixel.sound.FlxSound;
+import flixel.system.FlxQuadTree;
+import flixel.text.FlxText;
+import flixel.tile.FlxBaseTilemap;
+import flixel.tile.FlxTilemap;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
+import flixel.util.FlxDestroyUtil;
+import flixel.util.FlxDirectionFlags;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -50,7 +42,7 @@ class PlayState extends FlxState
 	private var wallMap:FlxTilemap;
 	private var bounceMap:FlxTilemap;
 	private var decorationMap:FlxTilemap;
-	private var overlayMap:FlxTilemapExt;
+	private var overlayMap:FlxTilemap;
 	private var spikeGroup:FlxTypedGroup<FlxSprite>;
 	private var objectGroup:FlxTypedGroup<FlxObject>;
 	private var powerupGroup:FlxTypedGroup<Powerup>;
@@ -208,8 +200,10 @@ class PlayState extends FlxState
 		add(playerTrail);
 		add(player);
 
-		if (overlayMap != null)
+		if (overlayMap != null) {
+			trace('added overlayMap');
 			add(overlayMap);
+		}
 
 		add(scanlines);
 
@@ -458,7 +452,7 @@ class PlayState extends FlxState
 				return overlayMap.overlapsWithCallback(player);
 			});
 
-			overlayMap.alpha = (under ? OVERLAY_ALPHA : 1.0);
+			overlayMap.visible = !under;
 		}
 
 		FlxG.collide(endArea, player, onEndAreaHit);
@@ -607,7 +601,7 @@ class PlayState extends FlxState
 
 			case "overlay":
 				// Convert to a FlxTilemapExt since we need alpha support
-				overlayMap = new FlxTilemapExt();
+				overlayMap = new FlxTilemap();
 				var tileWidth = Math.floor(obj.width / obj.widthInTiles);
 				var tileHeight = Math.floor(obj.height / obj.heightInTiles);
 				overlayMap.loadMapFromArray(obj.getData(),

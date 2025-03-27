@@ -1,15 +1,13 @@
 package ;
 
-import flixel.FlxGame;
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.util.FlxSave;
-import flixel.sound.FlxSound;
-
 import flash.Lib;
-
 import Reg.HighScore;
 import Reg.LevelStats;
+import flixel.FlxG;
+import flixel.FlxGame;
+import flixel.FlxState;
+import flixel.sound.FlxSound;
+import flixel.util.FlxSave;
 import misc.GlobalHighscores;
 
 class Game extends FlxGame {
