@@ -77,35 +77,35 @@ class Input {
 	public static function skipPressed():Bool
 	{
 		#if (desktop || flash || html5)
-		return FlxG.keys.justPressed.SPACE || FlxG.mouse.pressed;
+		return FlxG.keys.justPressed.SPACE || FlxG.mouse.pressed || FlxG.gamepads.anyJustPressed(ANY);
 		#end
 
 		#if mobile
-		return isTouched();
+		return isTouched() || FlxG.gamepads.anyJustPressed(ANY);
 		#end
 	}
 
 	public static function flipPressed():Bool
 	{
 		#if (desktop || flash || html5)
-		return FlxG.keys.justPressed.SPACE;
+		return FlxG.keys.justPressed.SPACE || FlxG.gamepads.anyJustPressed(A) || FlxG.gamepads.anyJustPressed(B);
 		#end
 
 		#if mobile
-		return isTouched();
+		return isTouched() || FlxG.gamepads.anyJustPressed(A) || FlxG.gamepads.anyJustPressed(B);
 		#end
 	}
 
 	public static function bouncePressed():Bool
 	{
 		#if (desktop || flash || html5)
-		return FlxG.keys.justPressed.CONTROL;
+		return FlxG.keys.justPressed.CONTROL || FlxG.gamepads.anyJustPressed(X);
 		#end
 
 		#if mobile
 		if (bounceFlag)
 		{
-			return true;
+			return true || FlxG.gamepads.anyJustPressed(X);
 		}
 		#end
 
@@ -115,20 +115,20 @@ class Input {
 	public static function stopHeld():Bool
 	{
 		#if (desktop || flash || html5)
-		return FlxG.keys.pressed.SHIFT;
+		return FlxG.keys.pressed.SHIFT || FlxG.gamepads.anyPressed(Y);
 		#end
 
-		return stopFlag;
+		return stopFlag || FlxG.gamepads.anyPressed(Y);
 	}
 
 	public static function escapePressed():Bool
 	{
 		#if (desktop || flash || html5)
-		return FlxG.keys.justPressed.ESCAPE;
+		return FlxG.keys.justPressed.ESCAPE || FlxG.gamepads.anyPressed(START);
 		#end
 
 		#if android
-		return FlxG.android.justPressed("BACK");
+		return FlxG.android.justPressed("BACK") || FlxG.gamepads.anyPressed(START);
 		#end
 
 		return false;
