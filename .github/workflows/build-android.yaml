@@ -42,8 +42,8 @@ jobs:
         wget -O hxcpp.zip https://github.com/HaxeFoundation/hxcpp/releases/download/v4.3.78/hxcpp-4.3.78.zip
         unzip hxcpp.zip
         mv hxcpp-4.3.78 '4,3,78'
-        mkdir $(haxlib config)/hxpp/
-        mv '4,3,78' $(haxlib config)/hxpp/
+        mkdir $(haxelib config)/hxpp/
+        mv '4,3,78' $(haxelib config)/hxpp/
         haxelib set hxcpp 4.3.78
 
     - name: lime setup android
