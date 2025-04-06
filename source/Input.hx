@@ -128,7 +128,7 @@ class Input {
 		#end
 
 		#if android
-		return FlxG.android.justPressed("BACK") || FlxG.gamepads.anyPressed(START);
+		return FlxG.android.justPressed.BACK || FlxG.gamepads.anyPressed(START);
 		#end
 
 		return false;

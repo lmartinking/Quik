@@ -152,7 +152,7 @@ class Game extends FlxGame {
 		#if android
 		// Default behavior is to end the current activity, instead
 		// we can use this for our pause screen
-		FlxG.android.preventDefaultBackAction = true;
+		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 
 		loadGlobalSettings();
