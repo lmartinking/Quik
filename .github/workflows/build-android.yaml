@@ -63,6 +63,16 @@ jobs:
       run: |
         haxelib run lime build android -final -Drelease
 
-    - name: List Outputs
-      run: |
-        ls -l ./export/android/bin/app/
+    - name: Upload Artifact (Debug)
+      uses: actions/upload-artifact@main
+      with:
+        name: android-debug
+        path: ./export/android/bin/app/build/outputs/apk/debug
+        if-no-files-found: warn
+
+    - name: Upload Artifact (Release)
+      uses: actions/upload-artifact@main
+      with:
+        name: android-release
+        path: ./export/android/bin/app/build/outputs/apk/release
+        if-no-files-found: warn
