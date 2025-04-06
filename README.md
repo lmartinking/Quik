@@ -31,12 +31,12 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 
 ### Known Working Versions of Dependencies
 
- * Haxe 4.3.4
- * HxCPP 4.3.2
- * Flixel 5.8.0
- * Flixel UI 2.6.1
- * Lime 8.1.2
- * OpenFL 9.3.3
+ * Haxe 4.3.6
+ * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet)
+ * Flixel 6.0.0
+ * Flixel UI 2.6.4
+ * Lime 8.2.2
+ * OpenFL 9.4.1
 
 ### Then
 
