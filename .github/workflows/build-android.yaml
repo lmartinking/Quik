@@ -35,10 +35,10 @@ jobs:
         haxelib install flixel-addons 3.3.2
         haxelib install flixel-ui 2.6.4
 
-    - name: Set up hxcpp 
+    - name: Set up hxcpp
       run: |
         set -ex
-        pushd $(mktemp)
+        pushd $(mktemp -d)
         wget -O hxcpp.zip https://github.com/HaxeFoundation/hxcpp/releases/download/v4.3.78/hxcpp-4.3.78.zip
         unzip hxcpp.zip
         mv hxcpp-4.3.78 '4,3,78'
