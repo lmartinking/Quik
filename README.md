@@ -32,11 +32,21 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 ### Known Working Versions of Dependencies
 
  * Haxe 4.3.6
- * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet)
+ * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet, find it [here](https://github.com/HaxeFoundation/hxcpp/releases/tag/v4.3.79))
  * Flixel 6.0.0
  * Flixel UI 2.6.4
  * Lime 8.2.2
  * OpenFL 9.4.1
+
+#### Android Dependencies
+
+The first two are highly specific, and line up with HXCPP and OpenFL/Lime.
+
+ * NDK 27.0.12077973
+ * Android 15 SDK (API level 35)
+
+ * SDK Build Tools 36.0.0
+ * SDK Command Line Tools 19.0
 
 ### Then
 
