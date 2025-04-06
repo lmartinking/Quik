@@ -2,7 +2,7 @@
 <project>
 	<!-- APPLICATION SETTINGS -->
 	
-	<app title="Quik" file="quik" main="Main" version="1.0.1" package="com.irrationalidiom.quik" company="irrational idiom" />
+	<app title="Quik" file="quik" main="Main" version="1.1.0" package="com.irrationalidiom.quik" company="irrational idiom" />
 	<app title="Quik (Testing)" package="com.irrationalidiom.quik_testing" if="testing" />
 	<app title="Quik" package="com.irrationalidiom.quik_release" if="release" unless="testing" />
 
