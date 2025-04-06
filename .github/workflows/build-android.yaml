@@ -34,15 +34,20 @@ jobs:
         haxelib install flixel 6.0.0
         haxelib install flixel-addons 3.3.2
         haxelib install flixel-ui 2.6.4
+        haxelib install hxcpp
 
-    - name: Set up hxcpp
+    - name: Set up hxcpp 4.3.78
       run: |
+        echo ">>> Existing hxcpp <<<"
+        ls -l $(haxelib config)/hxcpp/
+
+        echo ">>> Updated hxcpp <<<"
         set -ex
         pushd $(mktemp -d)
         wget -O hxcpp.zip https://github.com/HaxeFoundation/hxcpp/releases/download/v4.3.78/hxcpp-4.3.78.zip
         unzip hxcpp.zip
         mv hxcpp-4.3.78 '4,3,78'
-        mkdir $(haxelib config)/hxcpp/
+        mkdir -p $(haxelib config)/hxcpp/ || true
         mv '4,3,78' $(haxelib config)/hxcpp/
         haxelib set hxcpp 4.3.78
 
