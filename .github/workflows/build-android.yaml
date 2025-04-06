@@ -61,7 +61,7 @@ jobs:
 
     - name: Build
       run: |
-        haxelib run lime build android -Drelease
+        haxelib run lime build android -final -Drelease
 
     - name: List Outputs
       run: |
