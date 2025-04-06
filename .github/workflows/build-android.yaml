@@ -1,4 +1,4 @@
-name: OpenFL android
+name: Android Build
 
 on: [push, pull_request]
 
@@ -25,13 +25,26 @@ jobs:
 
     - uses: krdlab/setup-haxe@v1
       with:
-        haxe-version: 4.2.5
+        haxe-version: 4.3.6
     
     - name: Set up Haxelib dependencies
       run: |
-        haxelib install lime --quiet
-        haxelib install openfl --quiet
-        haxelib install hxcpp 4.2.1 --quiet
+        haxelib install openfl 9.4.1
+        haxelib install lime 8.2.2
+        haxelib install flixel 6.0.0
+        haxelib install flixel-addons 3.3.2
+        haxelib install flixel-ui 2.6.4
+
+    - name: Set up hxcpp 
+      run: |
+        set -ex
+        pushd $(mktemp)
+        wget -O hxcpp.zip https://github.com/HaxeFoundation/hxcpp/releases/download/v4.3.78/hxcpp-4.3.78.zip
+        unzip hxcpp.zip
+        mv hxcpp-4.3.78 '4,3,78'
+        mkdir $(haxlib config)/hxpp/
+        mv '4,3,78' $(haxlib config)/hxpp/
+        haxelib set hxcpp 4.3.78
 
     - name: lime setup android
       run: |
