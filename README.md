@@ -5,7 +5,7 @@ Quik
 
 The source and assets for [Quik: Gravity Flip Platformer](https://irrationalidiom.com/quik).
 
-**This is the develop branch, updated to use Flixel 4.**
+**This is the develop branch, updated to use Flixel 6.**
 
 It is inspired by two games I love: _Cannabalt_ and _VVVVVV_.
 
