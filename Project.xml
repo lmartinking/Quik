@@ -34,8 +34,8 @@
 	<window if="android" allow-shaders="true" require-shaders="false" depth-buffer="false" stencil-buffer="false" />
 	
 
-	<architecture name="armv6" if="android" />
 	<architecture name="armv7" if="android" />
+	<architecture name="arm64" if="android" />
 
 	<!-- PATHS SETTINGS -->
 	
