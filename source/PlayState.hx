@@ -285,7 +285,7 @@ class PlayState extends FlxState
 		savePoint.velocity.set(player.velocity.x, player.velocity.y);
 		savePoint.accelleration.set(player.acceleration.x, player.acceleration.y);
 		savePoint.flipY = player.flipY;
-		savePoint.facing = player.facing;
+		savePoint.facing = player.facing.toInt();
 		savePoint.timeElapsed = stats.elapsedTime;
 	}
 
@@ -294,7 +294,7 @@ class PlayState extends FlxState
 		if (savePoint == null)
 			return false;
 
-		player.facing = savePoint.facing;
+		player.facing = FlxDirectionFlags.fromInt(savePoint.facing);
 		player.flipY = savePoint.flipY;
 		player.acceleration.set(savePoint.accelleration.x, savePoint.accelleration.y);
 		player.velocity.set(savePoint.velocity.x, savePoint.velocity.y);
