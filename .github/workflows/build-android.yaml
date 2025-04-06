@@ -21,7 +21,7 @@ jobs:
     - uses: nttld/setup-ndk@v1
       id: setup-ndk 
       with:
-        ndk-version: '27.0.12077973'
+        ndk-version: r27  # 27.0.12077973, see: https://github.com/android/ndk/releases/tag/r27
 
     - uses: krdlab/setup-haxe@v1
       with:
