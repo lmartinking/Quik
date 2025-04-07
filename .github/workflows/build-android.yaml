@@ -58,9 +58,11 @@ jobs:
 
     - name: Set up keystore
       run: |
+        set -ex
         KS_FILE=$(mktemp)
-        chmod 400 $KS_FILE
+        chmod 600 $KS_FILE
         echo -En '${{ secrets.QUIK_DEV_KEYSTORE }}' | base64 -d > $KS_FILE
+        chmod 400 $KS_FILE
         echo "KEYSTORE_FILE=$KS_FILE" >> $GITHUB_ENV
 
     - name: Build
