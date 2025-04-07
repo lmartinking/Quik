@@ -15,9 +15,6 @@ jobs:
         java-version: "17"
         distribution: "temurin"
 
-    # - name: Setup Android SDK
-    #   uses: android-actions/setup-android@v3
-
     - uses: nttld/setup-ndk@v1
       id: setup-ndk 
       with:
@@ -59,20 +56,34 @@ jobs:
         haxelib run lime config ANDROID_SETUP true
         haxelib run lime config
 
+    - name: Set up keystore
+      run: |
+        KS_FILE=$(mktemp)
+        chmod 400 $KS_FILE
+        echo -En '${{ secrets.QUIK_DEV_KEYSTORE }}' | base64 -d > $KS_FILE
+        echo "KEYSTORE_FILE=$KS_FILE" >> $GITHUB_ENV
+
     - name: Build
       run: |
-        haxelib run lime build android -final -Drelease
+        haxelib run lime build android -final -Drelease \
+          --certificate-path=$KEYSTORE_FILE --certificiate-alias=dev --certificate-password=changeme
 
-    - name: Upload Artifact (Debug)
+    - name: Build Bundle
+      run: |
+        export ANDROID_GRADLE_TASK=":app:bundleRelease"
+        haxelib run lime build android -final -Drelease \
+          --certificate-path=$KEYSTORE_FILE --certificiate-alias=dev --certificate-password=changeme
+
+    - name: Upload APK (Release)
       uses: actions/upload-artifact@main
       with:
-        name: android-debug
-        path: ./export/android/bin/app/build/outputs/apk/debug
+        name: quik-release.apk
+        path: ./export/android/bin/app/build/outputs/apk/release/quik-release.apk
         if-no-files-found: warn
 
-    - name: Upload Artifact (Release)
+    - name: Upload Bundle (Release)
       uses: actions/upload-artifact@main
       with:
-        name: android-release
-        path: ./export/android/bin/app/build/outputs/apk/release
+        name: quik-release.apk
+        path: ./export/android/bin/app/build/outputs/bundle/release/app-release.aab
         if-no-files-found: warn
