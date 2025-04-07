@@ -111,7 +111,12 @@ class MenuState extends FlxState
 
 		edition.centerOrigin();
 		edition.screenCenter();
+		#if !mobile
 		edition.y -= 35;
+		#end
+		#if mobile
+		edition.y -= 15;
+		#end
 
 		var editionEffect = new FlxEffectSprite(edition);
 		var rainbow = new FlxRainbowEffect(0.5);

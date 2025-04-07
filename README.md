@@ -32,7 +32,7 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 ### Known Working Versions of Dependencies
 
  * Haxe 4.3.6
- * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet, find it [here](https://github.com/HaxeFoundation/hxcpp/releases/tag/v4.3.79))
+ * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet, find it [here](https://github.com/HaxeFoundation/hxcpp/releases/tag/v4.3.78))
  * Flixel 6.0.0
  * Flixel UI 2.6.4
  * Lime 8.2.2
