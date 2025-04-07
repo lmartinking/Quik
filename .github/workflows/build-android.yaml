@@ -61,6 +61,7 @@ jobs:
         set -ex
         pushd $(mktemp -d)
         KS_FILE="$(pwd)/dev.keystore"
+        touch $KS_FILE
         chmod 600 $KS_FILE
         echo -En '${{ secrets.QUIK_DEV_KEYSTORE }}' | base64 -d > $KS_FILE
         chmod 400 $KS_FILE
