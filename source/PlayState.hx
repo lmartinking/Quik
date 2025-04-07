@@ -938,14 +938,32 @@ class Platform extends FlxSprite
 			newPath.push(new FlxPoint(this.x + p.x, this.y + p.y));
 		}
 
-		if (points.length > 0)
+		if (newPath.length > 0)
 		{
-			this.x = points[0].x;
-			this.y = points[0].y;
+			var horiz = newPath[0].y == newPath[newPath.length - 1].y;
+			var vert = newPath[0].x == newPath[newPath.length - 1].x;
+
+			// FUDGE: There is a bug where horizontal platforms are not at the correct starting position.
+			// However, applying the fix breaks vertical platforms in existing levels. So just apply the fudge
+			// for horizontal platforms only.
+
+			var positionFudge = horiz;
+
+			if (positionFudge)
+			{
+				this.x = newPath[0].x;
+				this.y = newPath[0].y;
+			}
+			else
+			{
+				this.x = points[0].x;
+				this.y = points[0].y;
+			}
 		}
 
 		this.path = FlxDestroyUtil.destroy(this.path);
 		this.path = new FlxPath();
+
 		this.path.start(newPath, speed, FlxPathType.YOYO);
 		this.path.setNode(0);
 
