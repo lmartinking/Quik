@@ -1,8 +1,7 @@
 package;
 
-import flixel.util.FlxSave;
-
 import PlayState.SavePointState;
+import flixel.util.FlxSave;
 
 /**
  * Handy, pre-built Registry class that can be used to store 

@@ -5,7 +5,7 @@ Quik
 
 The source and assets for [Quik: Gravity Flip Platformer](https://irrationalidiom.com/quik).
 
-**This is the develop branch, updated to use Flixel 4.**
+**This is the develop branch, updated to use Flixel 6.**
 
 It is inspired by two games I love: _Cannabalt_ and _VVVVVV_.
 
@@ -31,12 +31,22 @@ You will need Haxe, OpenFL/Lime and HaxeFlixel set up.
 
 ### Known Working Versions of Dependencies
 
- * Haxe 4.3.4
- * HxCPP 4.3.2
- * Flixel 5.8.0
- * Flixel UI 2.6.1
- * Lime 8.1.2
- * OpenFL 9.3.3
+ * Haxe 4.3.6
+ * HxCPP 4.3.78 (Note this is a not published to Haxelib as yet, find it [here](https://github.com/HaxeFoundation/hxcpp/releases/tag/v4.3.78))
+ * Flixel 6.0.0
+ * Flixel UI 2.6.4
+ * Lime 8.2.2
+ * OpenFL 9.4.1
+
+#### Android Dependencies
+
+The first two are highly specific, and line up with HXCPP and OpenFL/Lime.
+
+ * NDK 27.0.12077973
+ * Android 15 SDK (API level 35)
+
+ * SDK Build Tools 36.0.0
+ * SDK Command Line Tools 19.0
 
 ### Then
 

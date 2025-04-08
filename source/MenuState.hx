@@ -1,7 +1,11 @@
 package;
 
+import flixel.addons.effects.chainable.FlxRainbowEffect;
+import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.text.FlxText;
 import flixel.group.FlxSpriteGroup;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxTween.FlxTweenType;
 
 import flixel.FlxG;
 import flixel.FlxState;
@@ -83,7 +87,7 @@ class MenuState extends FlxState
 	#end
 
 		buttonGroup.screenCenter();
-		buttonGroup.y += 30;
+		buttonGroup.y += 35;
 
 		title.screenCenter();
 		title.y -= 60;
@@ -100,9 +104,33 @@ class MenuState extends FlxState
 	#end
 	#end // demo
 
+		var edition = new FlxText();
+		edition.borderStyle = FlxTextBorderStyle.SHADOW;
+		edition.borderSize = 1.0;
+		edition.text = "10th Anniversary Edition!";
+
+		edition.centerOrigin();
+		edition.screenCenter();
+		#if !mobile
+		edition.y -= 35;
+		#end
+		#if mobile
+		edition.y -= 15;
+		#end
+
+		var editionEffect = new FlxEffectSprite(edition);
+		var rainbow = new FlxRainbowEffect(0.5);
+		editionEffect.effects = [rainbow];
+		editionEffect.active = rainbow.active = true;
+		editionEffect.x = edition.x;
+		editionEffect.y = edition.y;
+		FlxTween.tween(editionEffect, { "scale.x": 1.1, "scale.y": 1.1 }, 1.0, { type: FlxTweenType.PINGPONG });
+
 		add(backdrop);
 		add(title);
 		add(buttonGroup);
+
+		add(editionEffect);
 
 		var buildNote = new FlxText();
 		buildNote.size = 8;

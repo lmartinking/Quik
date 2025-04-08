@@ -1,15 +1,13 @@
 package ;
 
-import flixel.FlxGame;
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.util.FlxSave;
-import flixel.sound.FlxSound;
-
 import flash.Lib;
-
 import Reg.HighScore;
 import Reg.LevelStats;
+import flixel.FlxG;
+import flixel.FlxGame;
+import flixel.FlxState;
+import flixel.sound.FlxSound;
+import flixel.util.FlxSave;
 import misc.GlobalHighscores;
 
 class Game extends FlxGame {
@@ -36,6 +34,7 @@ class Game extends FlxGame {
 		var framerate:Int = 60; // How many frames per second the game should run at.
 		var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 		var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+		var devLevelIndex:Int = -1; // For Development purposes: Index of level to jump straight into
 
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
@@ -50,14 +49,17 @@ class Game extends FlxGame {
 			trace("zoom is now", zoom);
 		}
 
-		#if mobile
-		framerate = 30;
-		#end
-
 		seenInstructions = false;
 
 		attachAutoSave();
-		if (Reg.autoSave.data.active != null && Reg.autoSave.data.active == true)
+		if (devLevelIndex >= 0)
+		{
+			Reg.level = devLevelIndex;
+			Reg.resumed = true; // Pause
+			initialState = PlayState;
+			trace('DEV starting at level: ${Reg.level}');
+		}
+		else if (Reg.autoSave.data.active != null && Reg.autoSave.data.active == true)
 		{
 			Reg.score = Reg.autoSave.data.score;
 			Reg.level = Reg.autoSave.data.level;
@@ -146,7 +148,7 @@ class Game extends FlxGame {
 		#if android
 		// Default behavior is to end the current activity, instead
 		// we can use this for our pause screen
-		FlxG.android.preventDefaultBackAction = true;
+		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 
 		loadGlobalSettings();

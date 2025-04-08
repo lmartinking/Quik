@@ -1,20 +1,18 @@
 package misc;
 
 import StringTools;
+import flash.events.Event;
+import flash.events.HTTPStatusEvent;
 import haxe.crypto.Base64;
-import haxe.io.Bytes;
 import haxe.crypto.Hmac;
-
+import haxe.io.Bytes;
+import Reg.HighScore;
 import openfl.events.IOErrorEvent;
 import openfl.events.SecurityErrorEvent;
-import flash.events.HTTPStatusEvent;
-import flash.events.Event;
-import openfl.net.URLLoaderDataFormat;
-import openfl.net.URLRequestMethod;
 import openfl.net.URLLoader;
+import openfl.net.URLLoaderDataFormat;
 import openfl.net.URLRequest;
-
-import Reg.HighScore;
+import openfl.net.URLRequestMethod;
 import misc.MacroStuff;
 
 class GlobalHighscores {

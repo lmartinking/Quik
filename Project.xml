@@ -2,9 +2,8 @@
 <project>
 	<!-- APPLICATION SETTINGS -->
 	
-	<app title="Quik" file="quik" main="Main" version="1.0.1" package="com.irrationalidiom.quik" company="irrational idiom" />
+	<app title="Quik" file="quik" main="Main" version="1.1.0" package="com.irrationalidiom.quik" company="irrational idiom" />
 	<app title="Quik (Testing)" package="com.irrationalidiom.quik_testing" if="testing" />
-	<app title="Quik" package="com.irrationalidiom.quik_release" if="release" unless="testing" />
 
 	<section if="demo">
 		<app title="Quik (Demo)" package="com.irrationalidiom.quik_demo" />
@@ -31,11 +30,16 @@
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" fps="30" width="0" height="0" />
 
-	<window if="android" allow-shaders="true" require-shaders="false" depth-buffer="false" stencil-buffer="false" />
-	
-
-	<architecture name="armv6" if="android" />
-	<architecture name="armv7" if="android" />
+	<!-- Android specific -->
+	<section if="android">
+		<window allow-shaders="true" require-shaders="false" depth-buffer="false" stencil-buffer="false" />
+		<!-- Bump to use the latest Gradle and Android Gradle Plugin, to better support newer SDKs -->
+		<config:android gradle-version="8.13" gradle-plugin="8.9.1" />
+		<!-- Google Play now expects a much newer target SDK version -->
+		<config:android minimum-sdk-version="21" target-sdk-version="35" />
+		<architecture name="arm64" />
+		<architecture exclude="armv7" />
+	</section>
 
 	<!-- PATHS SETTINGS -->
 	
@@ -60,13 +64,13 @@
 	
 	<!-- LIBRARIES -->
 
-	<haxelib name="flixel" version="5.8.0"/>
+	<haxelib name="flixel" version="6.0.0"/>
 	
 	<!--In case you want to use the addons package-->
-	<haxelib name="flixel-addons" version="3.1.1"/>
+	<haxelib name="flixel-addons" version="3.3.2"/>
 	
 	<!--In case you want to use the ui package-->
-	<haxelib name="flixel-ui" version="2.6.1"/>
+	<haxelib name="flixel-ui" version="2.6.4"/>
 
 	<!-- HAXEDEFINES -->
 	
@@ -83,8 +87,7 @@
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
 	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
 	<haxedef name="FLX_NO_TOUCH" if="desktop" />
-	<haxedef name="FLX_NO_GAMEPAD" />
-	
+
 	<!--Disable the Flixel core sound tray-->
 	<!--haxedef name="FLX_NO_SOUND_TRAY" /-->
 	

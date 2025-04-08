@@ -1,0 +1,91 @@
+name: Android Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-java@v4
+      with:
+        java-version: "17"
+        distribution: "temurin"
+
+    - uses: nttld/setup-ndk@v1
+      id: setup-ndk 
+      with:
+        ndk-version: r27  # 27.0.12077973, see: https://github.com/android/ndk/releases/tag/r27
+
+    - uses: krdlab/setup-haxe@v1
+      with:
+        haxe-version: 4.3.6
+    
+    - name: Set up Haxelib dependencies
+      run: |
+        haxelib install openfl 9.4.1
+        haxelib install lime 8.2.2
+        haxelib install flixel 6.0.0
+        haxelib install flixel-addons 3.3.2
+        haxelib install flixel-ui 2.6.4
+        haxelib install hxcpp
+
+    - name: Set up hxcpp 4.3.78
+      run: |
+        echo ">>> Existing hxcpp <<<"
+        ls -l $(haxelib config)/hxcpp/
+
+        echo ">>> Updated hxcpp <<<"
+        set -ex
+        pushd $(mktemp -d)
+        wget -O hxcpp.zip https://github.com/HaxeFoundation/hxcpp/releases/download/v4.3.78/hxcpp-4.3.78.zip
+        unzip hxcpp.zip
+        mv hxcpp-4.3.78 '4,3,78'
+        mkdir -p $(haxelib config)/hxcpp/ || true
+        mv '4,3,78' $(haxelib config)/hxcpp/
+        haxelib set hxcpp 4.3.78
+
+    - name: lime setup android
+      run: |
+        haxelib run lime config ANDROID_SDK $ANDROID_SDK_ROOT
+        haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
+        haxelib run lime config JAVA_HOME ${{ env.JAVA_HOME }}
+        haxelib run lime config ANDROID_SETUP true
+        haxelib run lime config
+
+    - name: Set up keystore
+      run: |
+        set -ex
+        KS_FILE="$(mktemp --suffix='.keystore')"
+        chmod 600 $KS_FILE
+        echo -En '${{ secrets.QUIK_DEV_KEYSTORE }}' | base64 -d > $KS_FILE
+        chmod 400 $KS_FILE
+        echo "KEYSTORE_FILE=$KS_FILE" >> $GITHUB_ENV
+
+    - name: Build APK
+      run: |
+        haxelib run lime build android -final -Drelease \
+          --certificate-path=$KEYSTORE_FILE --certificate-alias=dev --certificate-password=changeme
+
+    - name: Build Bundle
+      run: |
+        export ANDROID_GRADLE_TASK=":app:bundleRelease"
+        haxelib run lime build android -final -Drelease \
+          --certificate-path=$KEYSTORE_FILE --certificate-alias=dev --certificate-password=changeme
+
+    - name: Upload APK (Release)
+      uses: actions/upload-artifact@main
+      with:
+        name: quik-release.apk
+        path: ./export/android/bin/app/build/outputs/apk/release/quik-release.apk
+        if-no-files-found: warn
+
+    - name: Upload Bundle (Release)
+      uses: actions/upload-artifact@main
+      with:
+        name: quik-release.aab
+        path: ./export/android/bin/app/build/outputs/bundle/release/app-release.aab
+        if-no-files-found: warn
