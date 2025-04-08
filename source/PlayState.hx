@@ -940,29 +940,14 @@ class Platform extends FlxSprite
 
 		if (newPath.length > 0)
 		{
-			var horiz = newPath[0].y == newPath[newPath.length - 1].y;
-			var vert = newPath[0].x == newPath[newPath.length - 1].x;
-
-			// FUDGE: There is a bug where horizontal platforms are not at the correct starting position.
-			// However, applying the fix breaks vertical platforms in existing levels. So just apply the fudge
-			// for horizontal platforms only.
-
-			var positionFudge = horiz;
-
-			if (positionFudge)
-			{
-				this.x = newPath[0].x;
-				this.y = newPath[0].y;
-			}
-			else
-			{
-				this.x = points[0].x;
-				this.y = points[0].y;
-			}
+			this.x = newPath[0].x;
+			this.y = newPath[0].y;
 		}
 
 		this.path = FlxDestroyUtil.destroy(this.path);
 		this.path = new FlxPath();
+		// IMPORTANT to ensure the platform is in the expected starting position
+		this.path.centerMode = FlxPathAnchorMode.TOP_LEFT;
 
 		this.path.start(newPath, speed, FlxPathType.YOYO);
 		this.path.setNode(0);
@@ -986,7 +971,11 @@ class Platform extends FlxSprite
 
 		super(xPos, yPos, assetPath);
 
-		centerOrigin();
+		// Due to changes in newer versions of Flixel, we need to adjust the position
+		// to keep platforms working the same as when the game was first coded (Flixel 3).
+		// See also: setPath()
+		this.x -= this.width / 2;
+		this.y -= this.height / 2;
 	}
 
 	override public function destroy():Void
