@@ -49,10 +49,6 @@ class Game extends FlxGame {
 			trace("zoom is now", zoom);
 		}
 
-		#if mobile
-		framerate = 30;
-		#end
-
 		seenInstructions = false;
 
 		attachAutoSave();
